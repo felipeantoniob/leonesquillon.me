@@ -1,6 +1,4 @@
 ---
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import imageUrlBuilder from "@sanity/image-url";
 import { Image } from "astro:assets";
 import { sanityClient } from "sanity:client";
 
@@ -17,7 +15,7 @@ import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import ProjectDetails from "~/components/work/ProjectDetails.astro";
 import Layout from "~/layouts/Layout.astro";
-import { urlFor } from "~/utils/urlFor";
+import { urlFor } from "~/lib/sanity";
 
 const PROJECT_QUERY = `*[_type == "project" && slug.current == $slug][0]`;
 
@@ -83,7 +81,11 @@ const sampleImages = project.sampleImages
     <div class="flex flex-col gap-8 lg:gap-20">
       {
         sampleImages.map((sampleImage) => (
-          <img src={sampleImage} class="w-full object-contain" />
+          <img
+            src={sampleImage}
+            alt="sample image"
+            class="w-full object-contain"
+          />
         ))
       }
     </div>

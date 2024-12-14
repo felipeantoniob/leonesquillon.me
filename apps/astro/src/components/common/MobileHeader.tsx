@@ -7,7 +7,7 @@ interface MobileHeaderProps {
 
 const MobileHeader = ({ title }: MobileHeaderProps) => {
   return (
-    <div className="mt-4 flex w-full flex-row justify-between px-4 py-2 lg:hidden">
+    <header className="mt-4 flex w-full flex-row justify-between px-4 py-2 lg:hidden">
       <div className="flex flex-row items-center gap-4">
         <img
           src={leonLogoSvg.src}
@@ -27,7 +27,7 @@ const MobileHeader = ({ title }: MobileHeaderProps) => {
         height="20"
         className="max-w-fit"
       />
-    </div>
+    </header>
   );
 };
 

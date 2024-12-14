@@ -9,14 +9,14 @@ interface RailContainerProps {
 
 const RailContainer = ({ children, className }: RailContainerProps) => {
   return (
-    <div
+    <nav
       className={cn(
         "hidden w-fit flex-col border-[#444] py-20 pe-10 ps-10 lg:flex",
         className,
       )}
     >
       {children}
-    </div>
+    </nav>
   );
 };
 

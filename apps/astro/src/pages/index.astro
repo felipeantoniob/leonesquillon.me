@@ -1,7 +1,4 @@
 ---
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import imageUrlBuilder from "@sanity/image-url";
-import { Image } from "astro:assets";
 import { sanityClient } from "sanity:client";
 
 import type { Bio, Experience } from "@leon/cms/types";
@@ -12,7 +9,7 @@ import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import Home from "~/components/home/Home";
 import Layout from "~/layouts/Layout.astro";
-import { urlFor } from "~/utils/urlFor";
+import { urlFor } from "~/lib/sanity";
 
 const EXPERIENCE_QUERY = `*[
   _type == "experience"

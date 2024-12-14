@@ -2,7 +2,7 @@ import type { MutableRefObject } from "react";
 
 import type { Project } from "@leon/cms/types";
 
-import { urlFor } from "~/utils/urlFor";
+import { urlFor } from "~/lib/sanity";
 
 interface ProjectListProps {
   projects: Project[];
