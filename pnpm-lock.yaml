@@ -75,6 +75,9 @@ importers:
       '@leon/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@portabletext/react':
+        specifier: ^3.2.0
+        version: 3.2.0(react@18.3.1)
       '@sanity/astro':
         specifier: ^3.1.6
         version: 3.1.6(@sanity/client@6.24.1)(@sanity/visual-editing@2.10.6(@sanity/client@6.24.1)(next@15.1.0(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(astro@5.0.5(@types/node@20.17.10)(jiti@1.21.6)(rollup@4.28.1)(typescript@5.7.2)(yaml@2.6.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sanity@3.67.1(@emotion/is-prop-valid@1.2.2)(@types/node@20.17.10)(@types/react@18.3.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))

@@ -15,7 +15,8 @@ export const bioType = defineType({
     defineField({
       name: 'bioContent',
       title: 'Bio Content',
-      type: 'text',
+      type: 'array',
+      of: [{ type: 'block' }],
       description: 'Provide a written bio here. This can be a short paragraph or a more detailed description of who you are.',
     }),
   ],

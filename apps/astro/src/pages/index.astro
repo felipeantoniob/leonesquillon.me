@@ -1,7 +1,10 @@
 ---
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import imageUrlBuilder from "@sanity/image-url";
+import { Image } from "astro:assets";
 import { sanityClient } from "sanity:client";
 
-import type { Experience } from "@leon/cms/types";
+import type { Bio, Experience } from "@leon/cms/types";
 
 import MobileHeader from "~/components/common/MobileHeader";
 import MobileNavList from "~/components/common/MobileNavList";
@@ -16,11 +19,33 @@ const EXPERIENCE_QUERY = `*[
 ]|order(sortOrder asc)`;
 
 const experience = await sanityClient.fetch<Experience[]>(EXPERIENCE_QUERY);
+
+const BIO_QUERY = `*[
+  _type == "bio"
+ 
+][0]`;
+
+const bio = await sanityClient.fetch<Bio>(BIO_QUERY);
+
+const { projectId, dataset } = sanityClient.config();
+const urlFor = (source: SanityImageSource) =>
+  projectId && dataset
+    ? imageUrlBuilder({ projectId, dataset }).image(source)
+    : null;
+
+const bioImageUrl = bio.bioImage
+  ? urlFor(bio.bioImage)?.width(560).height(315).url()
+  : null;
 ---
 
 <Layout>
   <MobileHeader title="LEON ESQUILLON" />
-  <Home client:load experience={experience} />
+  <Home
+    client:load
+    experience={experience}
+    bio={bio}
+    bioImageUrl={bioImageUrl}
+  />
   <MobileNavList />
 
   <RailContainer className="border-l p-0">

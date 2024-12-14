@@ -15,7 +15,6 @@ import ContentContainer from "~/components/common/ContentContainer";
 import MobileHeader from "~/components/common/MobileHeader";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
-import Badge from "~/components/work/Badge";
 import ProjectDetails from "~/components/work/ProjectDetails.astro";
 import Layout from "~/layouts/Layout.astro";
 
@@ -35,8 +34,8 @@ const urlFor = (source: SanityImageSource) =>
   projectId && dataset
     ? imageUrlBuilder({ projectId, dataset }).image(source)
     : null;
-const projectImageUrl = project.image
-  ? urlFor(project.image)?.width(550).height(310).url()
+const projectImageUrl = project.coverImage
+  ? urlFor(project.coverImage)?.width(550).height(310).url()
   : null;
 console.log(projectImageUrl);
 ---
@@ -75,12 +74,7 @@ console.log(projectImageUrl);
             </a>
           </div>
         </div>
-        <ProjectDetails
-          role={project.role}
-          description={project.description}
-          period={project.period}
-          tags={project.tags}
-        />
+        <ProjectDetails project={project} />
       </div>
     </div>
     <div class="flex flex-col gap-8 lg:gap-20">

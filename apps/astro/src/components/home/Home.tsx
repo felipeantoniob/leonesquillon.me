@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { Experience } from "@leon/cms/types";
+import type { Bio, Experience } from "@leon/cms/types";
 
 import leonLogoSvg from "~/assets/leon-logo-white.svg";
 import { cn } from "~/utils/cn";
@@ -26,11 +26,14 @@ const sections = {
 } as const;
 
 interface HomeProps {
+  bio: Bio;
   experience: Experience[];
+  bioImageUrl: string | null | undefined;
 }
 
-const Home = ({ experience }: HomeProps) => {
-  const [selectedSection, setSelectedSection] = useState<Section>("Experience");
+const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {
+  const [selectedSection, setSelectedSection] =
+    useState<Section>("Introduction");
 
   return (
     <>
@@ -68,11 +71,13 @@ const Home = ({ experience }: HomeProps) => {
             })}
           </div>
         </RailContainer>
-        <div className="flex max-h-screen flex-col items-center gap-10 px-4 pb-40 pt-8 lg:overflow-scroll lg:pt-20">
+        <div className="flex max-h-screen w-full flex-col items-center gap-10 px-4 pb-40 pt-8 lg:overflow-scroll lg:pt-20">
           {selectedSection === "Experience" && (
             <ExperienceSection experience={experience} />
           )}
-          {selectedSection === "Bio" && <BioSection />}
+          {selectedSection === "Bio" && (
+            <BioSection bio={bio} bioImageUrl={bioImageUrl} />
+          )}
           {selectedSection === "Introduction" && <IntroductionSection />}
         </div>
       </ContentContainer>
