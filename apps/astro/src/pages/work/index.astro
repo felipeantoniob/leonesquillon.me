@@ -20,8 +20,8 @@ const projects = await sanityClient.fetch<Project[]>(PROJECTS_QUERY);
 
 <Layout>
   <MobileHeader title="WORK" />
-  <RailContainer className="ps-20">
-    <RailNav href="/">
+  <RailContainer className="p-0">
+    <RailNav className="h-full py-20 pe-10 ps-20" href="/">
       <img
         src={leonLogoSvg.src}
         alt="logo"
@@ -34,7 +34,9 @@ const projects = await sanityClient.fetch<Project[]>(PROJECTS_QUERY);
 
   <Projects projects={projects} client:load />
 
-  <RailContainer className="pe-20">
-    <RailNav href="/contact">CONTACT</RailNav>
+  <RailContainer className="p-0">
+    <RailNav className="h-full py-20 pe-20 ps-10" href="/contact"
+      >CONTACT</RailNav
+    >
   </RailContainer>
 </Layout>

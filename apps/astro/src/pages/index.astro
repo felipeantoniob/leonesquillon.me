@@ -23,11 +23,13 @@ const experience = await sanityClient.fetch<Experience[]>(EXPERIENCE_QUERY);
   <Home client:load experience={experience} />
   <MobileNavList />
 
-  <RailContainer className="border-l">
-    <RailNav href="/work">WORK</RailNav>
+  <RailContainer className="border-l p-0">
+    <RailNav className="h-full px-10 py-20" href="/work">WORK</RailNav>
   </RailContainer>
 
-  <RailContainer className="border-l pe-20">
-    <RailNav href="/contact">CONTACT</RailNav>
+  <RailContainer className="border-l p-0">
+    <RailNav className="h-full py-20 pe-20 ps-10" href="/contact"
+      >CONTACT</RailNav
+    >
   </RailContainer>
 </Layout>

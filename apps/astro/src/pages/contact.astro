@@ -12,8 +12,8 @@ import Layout from "~/layouts/Layout.astro";
 
 <Layout>
   <MobileHeader title="CONTACT" />
-  <RailContainer className="pe-10 ps-20">
-    <RailNav href="/">
+  <RailContainer className="p-0">
+    <RailNav className="h-full py-20 pe-10 ps-20" href="/">
       <Image
         src={leonLogoSvg}
         alt="logo"
@@ -24,8 +24,8 @@ import Layout from "~/layouts/Layout.astro";
     </RailNav>
   </RailContainer>
 
-  <RailContainer className="border border-l">
-    <RailNav href="/work">WORK</RailNav>
+  <RailContainer className="border border-l p-0">
+    <RailNav className="h-full px-10 py-20" href="/work">WORK</RailNav>
   </RailContainer>
 
   <ContentContainer className="min-h-screen border-l">
