@@ -1,0 +1,40 @@
+---
+import { sanityClient } from "sanity:client";
+
+import type { Project } from "@leon/cms/types";
+
+import leonLogoSvg from "~/assets/leon-logo.svg";
+import MobileHeader from "~/components/common/MobileHeader";
+import RailContainer from "~/components/common/RailContainer";
+import RailNav from "~/components/common/RailNav";
+import Projects from "~/components/work/Projects";
+import Layout from "~/layouts/Layout.astro";
+
+const PROJECTS_QUERY = `*[
+  _type == "project"
+  && defined(slug.current)
+]|order(sortOrder asc)`;
+
+const projects = await sanityClient.fetch<Project[]>(PROJECTS_QUERY);
+---
+
+<Layout>
+  <MobileHeader title="WORK" />
+  <RailContainer className="ps-20">
+    <RailNav href="/">
+      <img
+        src={leonLogoSvg.src}
+        alt="logo"
+        width="24"
+        height="24"
+        class="max-w-fit"
+      />
+    </RailNav>
+  </RailContainer>
+
+  <Projects projects={projects} client:load />
+
+  <RailContainer className="pe-20">
+    <RailNav href="/contact">CONTACT</RailNav>
+  </RailContainer>
+</Layout>

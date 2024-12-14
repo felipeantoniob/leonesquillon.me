@@ -1,0 +1,95 @@
+---
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import imageUrlBuilder from "@sanity/image-url";
+import { Image } from "astro:assets";
+import { sanityClient } from "sanity:client";
+
+import type { Project } from "@leon/cms/types";
+
+import appStoreSvg from "~/assets/app-store-badge.svg";
+import arrowLeftSvg from "~/assets/arrow-left.svg";
+import googlePlaySvg from "~/assets/google-play-badge.svg";
+import tokiSvg from "~/assets/toki.svg";
+import webBadgeSvg from "~/assets/web-badge.svg";
+import ContentContainer from "~/components/common/ContentContainer";
+import MobileHeader from "~/components/common/MobileHeader";
+import RailContainer from "~/components/common/RailContainer";
+import RailNav from "~/components/common/RailNav";
+import Badge from "~/components/work/Badge";
+import ProjectDetails from "~/components/work/ProjectDetails.astro";
+import Layout from "~/layouts/Layout.astro";
+
+const PROJECT_QUERY = `*[_type == "project" && slug.current == $slug][0]`;
+
+const project = await sanityClient.fetch<Project>(PROJECT_QUERY, Astro.params);
+
+export async function getStaticPaths(): Promise<{ params: { slug: string } }> {
+  const SLUGS_QUERY = `*[_type == "project" && defined(slug.current)]{
+    "params": {"slug": slug.current}
+  }`;
+  return await sanityClient.fetch(SLUGS_QUERY, Astro.params);
+}
+
+const { projectId, dataset } = sanityClient.config();
+const urlFor = (source: SanityImageSource) =>
+  projectId && dataset
+    ? imageUrlBuilder({ projectId, dataset }).image(source)
+    : null;
+const projectImageUrl = project.image
+  ? urlFor(project.image)?.width(550).height(310).url()
+  : null;
+console.log(projectImageUrl);
+---
+
+<Layout>
+  <MobileHeader title="WORK" />
+  <RailContainer className="ps-20">
+    <RailNav href="/">LEON</RailNav>
+  </RailContainer>
+  <ContentContainer
+    className="gap-10 overflow-y-auto border-x px-4 pb-4 lg:flex-col lg:px-10"
+  >
+    <div class="flex flex-col gap-10 pt-2 lg:pt-20">
+      <a href="/work" class="flex flex-row items-center gap-2">
+        <Image src={arrowLeftSvg} alt="arrow-left" width="16" height="16" />
+        <p class="font-sans text-sm font-semibold text-[#444]">Back</p>
+      </a>
+      <div class="flex flex-col gap-8 lg:flex-row">
+        <div class="flex w-full flex-col gap-5">
+          <div>
+            <Image src={tokiSvg} alt="logo" width="121" height="56" />
+          </div>
+          <div class="flex h-10 flex-row gap-3">
+            <a href="/">
+              <Image src={webBadgeSvg} alt="web" class="h-6 w-[62px]" />
+            </a>
+            <a href="/">
+              <Image src={appStoreSvg} alt="app-store" class="h-6 w-[80px]" />
+            </a>
+            <a href="/">
+              <Image
+                src={googlePlaySvg}
+                alt="google-play"
+                class="h-6 w-[72px]"
+              />
+            </a>
+          </div>
+        </div>
+        <ProjectDetails
+          role={project.role}
+          description={project.description}
+          period={project.period}
+          tags={project.tags}
+        />
+      </div>
+    </div>
+    <div class="flex flex-col gap-8 lg:gap-20">
+      <div class="aspect-[328/184] w-full bg-gray-900"></div>
+      <div class="aspect-[328/184] w-full bg-gray-900"></div>
+      <div class="aspect-[328/184] w-full bg-gray-900"></div>
+    </div>
+  </ContentContainer>
+  <RailContainer className="pe-20">
+    <RailNav href="/contact">CONTACT</RailNav>
+  </RailContainer>
+</Layout>

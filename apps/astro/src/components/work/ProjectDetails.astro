@@ -1,0 +1,29 @@
+---
+import type { Project } from "@leon/cms/types";
+
+import Badge from "./Badge";
+
+interface Props
+  extends Pick<Project, "role" | "period" | "description" | "tags"> {}
+
+const { role, period, description, tags } = Astro.props;
+---
+
+<div class="flex flex-col gap-6">
+  <div class="flex flex-col gap-3">
+    <p class="font-serif text-2xl font-medium text-[#F6F6F6]">
+      {role}
+    </p>
+    <div class="flex flex-col gap-1">
+      <p class="font-sans text-base italic text-[#F6F6F6]">
+        {period}
+      </p>
+      <p class="font-sans font-medium text-[#F6F6F6]">
+        {description}
+      </p>
+    </div>
+  </div>
+  <div class="flex flex-row flex-wrap gap-3">
+    {tags?.map((tag) => <Badge text={tag} />)}
+  </div>
+</div>

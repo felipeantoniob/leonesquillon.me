@@ -1,0 +1,33 @@
+---
+import { sanityClient } from "sanity:client";
+
+import type { Experience } from "@leon/cms/types";
+
+import MobileHeader from "~/components/common/MobileHeader";
+import MobileNavList from "~/components/common/MobileNavList";
+import RailContainer from "~/components/common/RailContainer";
+import RailNav from "~/components/common/RailNav";
+import Home from "~/components/home/Home";
+import Layout from "~/layouts/Layout.astro";
+
+const EXPERIENCE_QUERY = `*[
+  _type == "experience"
+  && defined(_id)
+]|order(sortOrder asc)`;
+
+const experience = await sanityClient.fetch<Experience[]>(EXPERIENCE_QUERY);
+---
+
+<Layout>
+  <MobileHeader title="LEON ESQUILLON" />
+  <Home client:load experience={experience} />
+  <MobileNavList />
+
+  <RailContainer className="border-l">
+    <RailNav href="/work">WORK</RailNav>
+  </RailContainer>
+
+  <RailContainer className="border-l pe-20">
+    <RailNav href="/contact">CONTACT</RailNav>
+  </RailContainer>
+</Layout>

@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+
+import leonLogoSvg from "~/assets/leon-logo.svg";
+import ContentContainer from "~/components/common/ContentContainer";
+import MobileHeader from "~/components/common/MobileHeader";
+import RailContainer from "~/components/common/RailContainer";
+import RailNav from "~/components/common/RailNav";
+import ContactInfo from "~/components/contact/ContactInfo.astro";
+import Layout from "~/layouts/Layout.astro";
+---
+
+<Layout>
+  <MobileHeader title="CONTACT" />
+  <RailContainer className="pe-10 ps-20">
+    <RailNav href="/">
+      <Image
+        src={leonLogoSvg}
+        alt="logo"
+        width="24"
+        height="24"
+        class="aspect-square max-w-fit"
+      />
+    </RailNav>
+  </RailContainer>
+
+  <RailContainer className="border border-l">
+    <RailNav href="/work">WORK</RailNav>
+  </RailContainer>
+
+  <ContentContainer className="min-h-screen border-l">
+    <RailContainer>
+      <RailNav href="/contact" isActive>CONTACT</RailNav>
+    </RailContainer>
+    <ContactInfo />
+  </ContentContainer>
+</Layout>
