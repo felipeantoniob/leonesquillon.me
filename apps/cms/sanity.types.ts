@@ -83,7 +83,7 @@ export type Project = {
   webUrl?: string
   androidUrl?: string
   iosUrl?: string
-  image?: {
+  coverImage?: {
     asset?: {
       _ref: string
       _type: 'reference'
@@ -94,7 +94,18 @@ export type Project = {
     crop?: SanityImageCrop
     _type: 'image'
   }
-  additionalImages?: Array<{
+  logo?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  sampleImages?: Array<{
     image?: {
       asset?: {
         _ref: string
