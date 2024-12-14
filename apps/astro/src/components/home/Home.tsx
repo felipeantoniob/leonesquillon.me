@@ -11,19 +11,9 @@ import BioSection from "./BioSection";
 import ExperienceSection from "./ExperienceSection";
 import IntroductionSection from "./IntroductionSection";
 
-type Section = "Introduction" | "Experience" | "Bio";
+type Section = typeof SECTION[number];
 
-const sections = {
-  Introduction: {
-    label: "Introduction",
-  },
-  Experience: {
-    label: "Experience",
-  },
-  Bio: {
-    label: "Bio",
-  },
-} as const;
+const SECTION = ["Introduction", "Experience", "Bio"] as const
 
 interface HomeProps {
   bio: Bio;
@@ -50,35 +40,30 @@ const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {
             LEON ESQUILLON
           </RailNav>
           <div className={cn("mt-10 flex w-full flex-col items-start gap-5")}>
-            {Object.keys(sections).map((sectionKey) => {
-              const section = sections[sectionKey as Section];
+            {SECTION.map((section) => {
               return (
                 <button
-                  onClick={() => setSelectedSection(sectionKey as Section)}
-                  key={sectionKey}
+                  onClick={() => setSelectedSection(section)}
+                  key={section}
                   className="w-full"
                 >
                   <p
                     className={cn(
                       "text-left font-sans text-base font-medium text-[#444]",
-                      sectionKey === selectedSection && "text-white",
+                      section === selectedSection && "text-white",
                     )}
                   >
-                    {section.label}
+                    {section}
                   </p>
                 </button>
               );
             })}
           </div>
         </RailContainer>
-        <div className="flex max-h-screen w-full flex-col items-center gap-10 px-4 pb-40 pt-8 lg:overflow-scroll lg:pt-20">
-          {selectedSection === "Experience" && (
-            <ExperienceSection experience={experience} />
-          )}
-          {selectedSection === "Bio" && (
-            <BioSection bio={bio} bioImageUrl={bioImageUrl} />
-          )}
-          {selectedSection === "Introduction" && <IntroductionSection />}
+        <div className="flex max-h-screen w-full flex-col items-center gap-96 px-4 pb-40 pt-8 lg:overflow-scroll lg:pt-20">
+          <IntroductionSection />
+          <ExperienceSection experience={experience} />
+          <BioSection bio={bio} bioImageUrl={bioImageUrl} />
         </div>
       </ContentContainer>
     </>
