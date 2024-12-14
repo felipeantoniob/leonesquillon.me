@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from "react";
 
-import { cn } from "~/utils/cn";
+import { cn } from "~/lib/utils";
 
 const ContentContainer = ({
   children,

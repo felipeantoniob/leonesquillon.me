@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from "react";
 
-import { cn } from "@leon/ui";
+import { cn } from "~/lib/utils";
 
 interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   text: string;

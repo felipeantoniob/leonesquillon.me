@@ -1,6 +1,6 @@
 import type { Experience } from "@leon/cms/types";
 
-import { cn } from "~/utils/cn";
+import { cn } from "~/lib/utils";
 
 interface ExperienceSectionProps {
   experience: Experience[];

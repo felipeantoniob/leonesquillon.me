@@ -3,7 +3,7 @@ import { useState } from "react";
 import type { Bio, Experience } from "@leon/cms/types";
 
 import leonLogoSvg from "~/assets/leon-logo-white.svg";
-import { cn } from "~/utils/cn";
+import { cn } from "~/lib/utils";
 import ContentContainer from "../common/ContentContainer";
 import RailContainer from "../common/RailContainer";
 import RailNav from "../common/RailNav";

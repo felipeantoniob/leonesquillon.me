@@ -21,6 +21,7 @@
     "@leon/cms": "workspace:*",
     "@leon/ui": "workspace:*",
     "@portabletext/react": "^3.2.0",
+    "@radix-ui/react-slot": "^1.1.0",
     "@sanity/astro": "^3.1.6",
     "@sanity/client": "^6.24.1",
     "@sanity/image-url": "^1.1.0",
@@ -31,12 +32,14 @@
     "clsx": "^2.1.1",
     "eslint-plugin-react": "^7.37.2",
     "globals": "^15.13.0",
+    "lucide-react": "^0.468.0",
     "motion": "^11.13.5",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "sanity": "^3.67.1",
     "sharp": "0.33.5",
-    "tailwind-merge": "^2.5.5"
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@leon/eslint-config": "workspace:*",

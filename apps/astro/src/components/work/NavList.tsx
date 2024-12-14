@@ -2,7 +2,7 @@ import type { MutableRefObject } from "react";
 
 import type { Project } from "@leon/cms/types";
 
-import { cn } from "~/utils/cn";
+import { cn } from "~/lib/utils";
 
 interface NavListProps {
   projects: Project[];
