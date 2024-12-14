@@ -125,6 +125,44 @@ export type Project = {
   sortOrder?: number
 }
 
+export type Slug = {
+  _type: 'slug'
+  current: string
+  source?: string
+}
+
+export type Experience = {
+  _id: string
+  _type: 'experience'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  position: string
+  company: string
+  period: string
+  sortOrder?: number
+}
+
+export type Bio = {
+  _id: string
+  _type: 'bio'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  bioImage?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  bioContent?: string
+}
+
 export type SanityImageCrop = {
   _type: 'sanity.imageCrop'
   top?: number
@@ -182,24 +220,6 @@ export type SanityImageMetadata = {
   isOpaque?: boolean
 }
 
-export type Slug = {
-  _type: 'slug'
-  current: string
-  source?: string
-}
-
-export type Experience = {
-  _id: string
-  _type: 'experience'
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  position: string
-  company: string
-  period: string
-  sortOrder?: number
-}
-
 export type AllSanitySchemaTypes =
   | SanityImagePaletteSwatch
   | SanityImagePalette
@@ -207,11 +227,12 @@ export type AllSanitySchemaTypes =
   | SanityFileAsset
   | Geopoint
   | Project
+  | Slug
+  | Experience
+  | Bio
   | SanityImageCrop
   | SanityImageHotspot
   | SanityImageAsset
   | SanityAssetSourceData
   | SanityImageMetadata
-  | Slug
-  | Experience
 export declare const internalGroqTypeReferenceTo: unique symbol
