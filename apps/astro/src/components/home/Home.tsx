@@ -11,14 +11,14 @@ import BioSection from "./BioSection";
 import ExperienceSection from "./ExperienceSection";
 import IntroductionSection from "./IntroductionSection";
 
-type Section = typeof SECTION[number];
+type Section = (typeof SECTION)[number];
 
-const SECTION = ["Introduction", "Experience", "Bio"] as const
+const SECTION = ["Introduction", "Experience", "Bio"] as const;
 
 interface HomeProps {
   bio: Bio;
   experience: Experience[];
-  bioImageUrl: string | null | undefined;
+  bioImageUrl: string | null;
 }
 
 const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {

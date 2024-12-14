@@ -4,7 +4,7 @@ import type { Bio } from "@leon/cms/types";
 
 interface BioSectionProps {
   bio: Bio;
-  bioImageUrl: string | null | undefined;
+  bioImageUrl: string | null;
 }
 
 const BioSection = ({ bio, bioImageUrl }: BioSectionProps) => {

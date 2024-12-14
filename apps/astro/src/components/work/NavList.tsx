@@ -15,7 +15,7 @@ const NavList = ({
   activeProjectIndex,
   containerRef,
 }: NavListProps) => {
-  containerRef.current?.scrollTo();
+  containerRef.current?.scrollTo({ behavior: "smooth" });
 
   const handleClick = (index: number) => {
     const container = containerRef.current;
@@ -32,13 +32,13 @@ const NavList = ({
   };
 
   return (
-    <div className="mt-10 flex flex-col gap-5">
+    <div className="mt-10 flex max-w-64 flex-col gap-5">
       {projects.map((project, index) => (
         <button
           key={index}
           onClick={() => handleClick(index)}
           className={cn(
-            "whitespace-nowrap text-left font-sans font-medium text-[#777]",
+            "text-left font-sans font-medium text-[#777]",
             index === activeProjectIndex && "text-white",
           )}
         >

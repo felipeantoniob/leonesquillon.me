@@ -2,6 +2,8 @@ import type { MutableRefObject } from "react";
 
 import type { Project } from "@leon/cms/types";
 
+import { urlFor } from "~/utils/urlFor";
+
 interface ProjectListProps {
   projects: Project[];
   containerRef: MutableRefObject<HTMLDivElement | null>;
@@ -30,7 +32,12 @@ const ProjectList = ({ projects, containerRef }: ProjectListProps) => {
             <a
               href={`/work/${project.slug.current}`}
               className="z-40 aspect-[693/338] w-full bg-gray-700"
-            />
+            >
+              <img
+                src={urlFor(project.coverImage ?? "").url()}
+                className="w-fit object-contain"
+              />
+            </a>
           </div>
         );
       })}

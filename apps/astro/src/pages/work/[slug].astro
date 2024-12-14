@@ -17,6 +17,7 @@ import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import ProjectDetails from "~/components/work/ProjectDetails.astro";
 import Layout from "~/layouts/Layout.astro";
+import { urlFor } from "~/utils/urlFor";
 
 const PROJECT_QUERY = `*[_type == "project" && slug.current == $slug][0]`;
 
@@ -29,15 +30,17 @@ export async function getStaticPaths(): Promise<{ params: { slug: string } }> {
   return await sanityClient.fetch(SLUGS_QUERY, Astro.params);
 }
 
-const { projectId, dataset } = sanityClient.config();
-const urlFor = (source: SanityImageSource) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
-const projectImageUrl = project.coverImage
-  ? urlFor(project.coverImage)?.width(550).height(310).url()
-  : null;
-console.log(projectImageUrl);
+const sampleImages = project.sampleImages
+  ? project.sampleImages
+      .map((sampleImage) => {
+        const sampleImageUrl = sampleImage.image
+          ? urlFor(sampleImage.image)?.url()
+          : null;
+
+        return sampleImageUrl;
+      })
+      .filter(Boolean)
+  : [];
 ---
 
 <Layout>
@@ -78,10 +81,11 @@ console.log(projectImageUrl);
       </div>
     </div>
     <div class="flex flex-col gap-8 lg:gap-20">
-      <img src={projectImageUrl} class="w-full object-contain" />
-      <img src={projectImageUrl} class="w-full object-contain" />
-      <img src={projectImageUrl} class="w-full object-contain" />
-      <img src={projectImageUrl} class="w-full object-contain" />
+      {
+        sampleImages.map((sampleImage) => (
+          <img src={sampleImage} class="w-full object-contain" />
+        ))
+      }
     </div>
   </ContentContainer>
   <RailContainer className="pe-20">

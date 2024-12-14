@@ -12,6 +12,7 @@ import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import Home from "~/components/home/Home";
 import Layout from "~/layouts/Layout.astro";
+import { urlFor } from "~/utils/urlFor";
 
 const EXPERIENCE_QUERY = `*[
   _type == "experience"
@@ -26,12 +27,6 @@ const BIO_QUERY = `*[
 ][0]`;
 
 const bio = await sanityClient.fetch<Bio>(BIO_QUERY);
-
-const { projectId, dataset } = sanityClient.config();
-const urlFor = (source: SanityImageSource) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
 
 const bioImageUrl = bio.bioImage
   ? urlFor(bio.bioImage)?.width(560).height(315).url()
