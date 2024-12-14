@@ -29,7 +29,7 @@ const ProjectList = ({ projects, containerRef }: ProjectListProps) => {
             </div>
             <a
               href={`/work/${project.slug.current}`}
-              className="z-50 aspect-[693/338] w-full bg-gray-700"
+              className="z-40 aspect-[693/338] w-full bg-gray-700"
             />
           </div>
         );

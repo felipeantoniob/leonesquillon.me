@@ -8,6 +8,8 @@ import "@fontsource/work-sans/700.css";
 
 import loraWoff2 from "@fontsource/lora/files/lora-latin-400-normal.woff2?url";
 import workSansWoff2 from "@fontsource/work-sans/files/work-sans-latin-400-normal.woff2?url";
+
+import Frame from "~/components/common/Frame";
 ---
 
 <!doctype html>
@@ -34,6 +36,7 @@ import workSansWoff2 from "@fontsource/work-sans/files/work-sans-latin-400-norma
     <title>Leon Esquillon</title>
   </head>
   <body class="lg:overflow-hidden">
+    <Frame client:only />
     <div
       class="mx-auto flex min-h-screen max-w-screen-2xl flex-col lg:flex-row"
     >
