@@ -6,6 +6,7 @@ import ContentContainer from "~/components/common/ContentContainer";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import useScrollPositionIndex from "~/hooks/useScrollPositionIndex";
+import MobileHeader from "../common/MobileHeader";
 import NavList from "./NavList";
 import ProjectList from "./ProjectList";
 
@@ -19,7 +20,8 @@ const Projects = ({ projects }: ProjectsProps) => {
 
   return (
     <>
-      <ContentContainer className="border-x">
+      <ContentContainer className="h-screen max-h-screen min-h-screen border-x">
+        <MobileHeader title="WORK" />
         <RailContainer disableGradient>
           <RailNav href="/work" isActive>
             WORK

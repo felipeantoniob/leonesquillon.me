@@ -4,7 +4,6 @@ import { sanityClient } from "sanity:client";
 import type { Project } from "@leon/cms/types";
 
 import leonLogoSvg from "~/assets/leon-logo.svg";
-import MobileHeader from "~/components/common/MobileHeader";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import Projects from "~/components/work/Projects";
@@ -19,7 +18,6 @@ const projects = await sanityClient.fetch<Project[]>(PROJECTS_QUERY);
 ---
 
 <Layout>
-  <MobileHeader title="WORK" client:load />
   <RailContainer className="p-0">
     <RailNav className="h-full py-20 pe-10 ps-20" href="/">
       <img

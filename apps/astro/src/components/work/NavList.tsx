@@ -15,7 +15,6 @@ const NavList = ({
   activeProjectIndex,
   containerRef,
 }: NavListProps) => {
-  containerRef.current?.scrollTo({ behavior: "smooth" });
 
   const handleClick = (index: number) => {
     const container = containerRef.current;
@@ -28,7 +27,7 @@ const NavList = ({
     const scrollPosition =
       (container.scrollHeight - container.clientHeight) * scrollPercentage;
 
-    container.scrollTo(0, scrollPosition);
+    container.scrollTo({ top: scrollPosition, behavior: "smooth" });
   };
 
   return (
