@@ -1,6 +1,6 @@
 const IntroductionSection = () => {
   return (
-    <div className="flex w-full flex-col gap-10 px-8 pt-16">
+    <div className="flex h-full w-full flex-col justify-center gap-10 px-8 pt-16">
       <div className="font-serif text-3xl text-white">
         <p>
           Hi, I’m Leon! A Product Designer that turns ideas into impactful

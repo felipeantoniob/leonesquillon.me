@@ -30,15 +30,13 @@ const bioImageUrl = bio.bioImage
   : null;
 ---
 
-<Layout>
-  <MobileHeader title="LEON ESQUILLON" client:load />
+<Layout class="bg-red-800">
   <Home
     client:load
     experience={experience}
     bio={bio}
     bioImageUrl={bioImageUrl}
   />
-  <MobileNavList />
 
   <RailContainer className="border-l p-0">
     <RailNav className="h-full px-10 py-20" href="/work">WORK</RailNav>
