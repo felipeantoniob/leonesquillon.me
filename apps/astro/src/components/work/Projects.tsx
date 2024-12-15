@@ -20,7 +20,7 @@ const Projects = ({ projects }: ProjectsProps) => {
   return (
     <>
       <ContentContainer className="border-x">
-        <RailContainer>
+        <RailContainer disableGradient>
           <RailNav href="/work" isActive>
             WORK
           </RailNav>

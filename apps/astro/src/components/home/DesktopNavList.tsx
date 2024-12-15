@@ -30,7 +30,7 @@ const DesktopNavList = ({
   };
 
   return (
-    <RailContainer>
+    <RailContainer disableGradient>
       <RailNav href="/" isActive className="hidden flex-row gap-4 lg:flex">
         <img
           src={leonLogoSvg.src}

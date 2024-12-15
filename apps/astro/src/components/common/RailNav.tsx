@@ -20,7 +20,7 @@ const RailNavProps = ({
       {...props}
       href={href}
       className={cn(
-        "whitespace-nowrap font-sans text-xl font-bold text-[#444]",
+        "whitespace-nowrap font-sans text-xl font-bold text-[#444] transition group-hover/nav:text-white",
         isActive && "text-white",
         className,
       )}
