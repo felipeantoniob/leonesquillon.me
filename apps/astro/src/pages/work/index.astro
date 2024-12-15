@@ -19,7 +19,7 @@ const projects = await sanityClient.fetch<Project[]>(PROJECTS_QUERY);
 ---
 
 <Layout>
-  <MobileHeader title="WORK" />
+  <MobileHeader title="WORK" client:load />
   <RailContainer className="p-0">
     <RailNav className="h-full py-20 pe-10 ps-20" href="/">
       <img
