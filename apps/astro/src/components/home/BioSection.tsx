@@ -13,9 +13,9 @@ const BioSection = ({ bio, bioImageUrl }: BioSectionProps) => {
       <img
         src={bioImageUrl ?? ""}
         alt="Picture of Leon Esquillon"
-        className="mx-auto aspect-[560/315] w-full max-w-screen-sm bg-gray-500 object-contain lg:max-w-screen-xl"
+        className="mx-auto aspect-[560/315] w-full max-w-screen-sm bg-gray-700 object-contain lg:max-w-screen-xl"
       />
-      <div className="flex flex-col gap-1 font-sans text-sm font-medium text-white">
+      <div className="flex flex-col gap-1 font-sans text-sm font-medium text-foreground">
         {/* @ts-expect-error TODO */}
         <PortableText value={bio.bioContent} />
       </div>

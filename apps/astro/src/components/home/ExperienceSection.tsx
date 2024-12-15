@@ -40,16 +40,16 @@ const ExperienceSection = ({ experience }: ExperienceSectionProps) => {
           <div className="flex flex-1 flex-col justify-between pb-8 pt-2">
             <p
               className={cn(
-                "font-sans text-sm font-semibold text-[#B0B0B0] lg:text-base",
-                index === 0 && "text-[#4379F3]",
+                "font-sans text-sm font-semibold text-muted-foreground lg:text-base",
+                index === 0 && "text-primary",
               )}
             >
               {position}, {company}
             </p>
             <p
               className={cn(
-                "font-sans text-sm font-normal text-[#888]",
-                index === 0 && "text-white",
+                "font-sans text-sm font-normal text-muted-foreground/80",
+                index === 0 && "text-foreground",
               )}
             >
               {period}

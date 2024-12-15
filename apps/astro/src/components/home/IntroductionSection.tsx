@@ -1,7 +1,7 @@
 const IntroductionSection = () => {
   return (
     <div className="flex h-full w-full flex-col justify-center gap-10 px-8">
-      <div className="font-serif text-2xl text-white lg:text-3xl">
+      <div className="font-serif text-2xl text-foreground lg:text-3xl">
         <p>
           Hi, I’m Leon! A Product Designer that turns ideas into impactful
           digital experiences.

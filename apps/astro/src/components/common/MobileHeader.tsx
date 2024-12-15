@@ -26,7 +26,7 @@ const MobileHeader = ({ title }: MobileHeaderProps) => {
           height="24"
           className="max-w-fit py-1"
         />
-        <p className="whitespace-nowrap font-sans text-xl font-bold text-white">
+        <p className="whitespace-nowrap font-sans text-xl font-bold text-foreground">
           {title}
         </p>
       </div>
@@ -41,7 +41,7 @@ const MobileHeader = ({ title }: MobileHeaderProps) => {
           />
         </DialogTrigger>
 
-        <DialogContent className="min-w-screen max-w-screen max-h-screen min-h-screen rounded-none border-0 bg-[#0F0F0F] sm:rounded-none">
+        <DialogContent className="min-w-screen max-w-screen max-h-screen min-h-screen rounded-none border-0 bg-background sm:rounded-none">
           <DialogHeader className="items-end self-start pt-2">
             <DialogClose>
               <img
@@ -53,7 +53,7 @@ const MobileHeader = ({ title }: MobileHeaderProps) => {
               />
             </DialogClose>
           </DialogHeader>
-          <div className="flex h-full flex-1 flex-col items-center justify-center gap-8 font-sans text-xl font-bold text-white/10">
+          <div className="flex h-full flex-1 flex-col items-center justify-center gap-8 font-sans text-xl font-bold text-muted-foreground">
             <a
               href={
                 title.includes("WORK") || title.includes("CONTACT")
@@ -64,7 +64,7 @@ const MobileHeader = ({ title }: MobileHeaderProps) => {
                 "flex flex-row items-center gap-3",
                 title.includes("WORK") || title.includes("CONTACT")
                   ? ""
-                  : "text-white",
+                  : "text-foreground",
               )}
             >
               {title.includes("WORK") || title.includes("CONTACT") ? (
@@ -88,20 +88,20 @@ const MobileHeader = ({ title }: MobileHeaderProps) => {
             </a>
             <a
               href={title.includes("WORK") ? undefined : "/work"}
-              className={cn(title.includes("WORK") && "text-white")}
+              className={cn(title.includes("WORK") && "text-foreground")}
             >
               WORK
             </a>
 
             <a
               href={title.includes("CONTACT") ? undefined : "/contact"}
-              className={cn(title.includes("CONTACT") && "text-white")}
+              className={cn(title.includes("CONTACT") && "text-foreground")}
             >
               CONTACT
             </a>
           </div>
 
-          <DialogFooter className="mx-auto mb-4 self-end font-sans text-xs font-medium text-[#888]">
+          <DialogFooter className="mx-auto mb-4 self-end font-sans text-xs font-medium text-muted-foreground">
             © LEON ESQUILLON
           </DialogFooter>
         </DialogContent>

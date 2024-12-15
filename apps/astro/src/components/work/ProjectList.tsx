@@ -20,11 +20,11 @@ const ProjectList = ({ projects, scrollContainerRef }: ProjectListProps) => {
           <div
             key={i}
             id={project.slug.current}
-            className="flex flex-col gap-5 text-white"
+            className="flex flex-col gap-5 text-foreground"
           >
             <div className="flex flex-col gap-2">
               <p className="font-serif text-3xl font-medium">{project.title}</p>
-              <p className="font-sans text-sm text-[#F6F6F6]">
+              <p className="font-sans text-sm text-foreground">
                 {project.period}
               </p>
               <p className="text-medium font-sans text-sm">{project.summary}</p>
