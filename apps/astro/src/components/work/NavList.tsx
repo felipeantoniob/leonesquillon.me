@@ -15,7 +15,6 @@ const NavList = ({
   activeProjectIndex,
   containerRef,
 }: NavListProps) => {
-
   const handleClick = (index: number) => {
     const container = containerRef.current;
 
