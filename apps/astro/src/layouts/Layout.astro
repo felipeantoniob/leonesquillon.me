@@ -10,6 +10,9 @@ import loraWoff2 from "@fontsource/lora/files/lora-latin-400-normal.woff2?url";
 import workSansWoff2 from "@fontsource/work-sans/files/work-sans-latin-400-normal.woff2?url";
 
 import "~/styles/globals.css";
+
+import { ViewTransitions } from "astro:transitions";
+import ClientRouter from "astro/components/ClientRouter.astro";
 ---
 
 <!doctype html>
@@ -43,6 +46,7 @@ import "~/styles/globals.css";
     />
     <meta name="generator" content={Astro.generator} />
     <title>Leon Esquillon</title>
+    <ClientRouter />
   </head>
   <body class="lg:overflow-hidden">
     <div
