@@ -6,13 +6,13 @@ import { urlFor } from "~/lib/sanity";
 
 interface ProjectListProps {
   projects: Project[];
-  containerRef: MutableRefObject<HTMLDivElement | null>;
+  scrollContainerRef: MutableRefObject<HTMLDivElement | null>;
 }
 
-const ProjectList = ({ projects, containerRef }: ProjectListProps) => {
+const ProjectList = ({ projects, scrollContainerRef }: ProjectListProps) => {
   return (
     <div
-      ref={containerRef}
+      ref={scrollContainerRef}
       className="flex h-full max-h-screen w-full flex-1 flex-col gap-20 overflow-y-auto px-4 py-8 lg:px-10 lg:py-20"
     >
       {projects.map((project, i) => {

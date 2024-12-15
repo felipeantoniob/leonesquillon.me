@@ -1,5 +1,3 @@
-import type { MutableRefObject } from "react";
-
 import leonLogoSvg from "~/assets/leon-logo-white.svg";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
@@ -8,27 +6,14 @@ import { cn } from "~/lib/utils";
 const SECTION = ["Introduction", "Experience", "Bio"] as const;
 
 interface DesktopNavListProps {
-  selectedSection: number;
-  containerRef: MutableRefObject<HTMLDivElement | null>;
+  selectedSectionIndex: number;
+  scrollToSection: (index: number) => void;
 }
 
 const DesktopNavList = ({
-  selectedSection,
-  containerRef,
+  selectedSectionIndex,
+  scrollToSection,
 }: DesktopNavListProps) => {
-  const handleClick = (index: number) => {
-    const container = containerRef.current;
-
-    if (!container) return;
-
-    const scrollPercentage = index / (SECTION.length - 1);
-
-    const scrollPosition =
-      (container.scrollHeight - container.clientHeight) * scrollPercentage;
-
-    container.scrollTo({ top: scrollPosition, behavior: "smooth" });
-  };
-
   return (
     <RailContainer disableGradient>
       <RailNav href="/" isActive className="hidden flex-row gap-4 lg:flex">
@@ -45,14 +30,14 @@ const DesktopNavList = ({
         {SECTION.map((section, index) => {
           return (
             <button
-              onClick={() => handleClick(index)}
+              onClick={() => scrollToSection(index)}
               key={section}
               className="w-full"
             >
               <p
                 className={cn(
                   "text-left font-sans text-base font-medium text-[#444]",
-                  index === selectedSection && "text-white",
+                  index === selectedSectionIndex && "text-white",
                 )}
               >
                 {section}

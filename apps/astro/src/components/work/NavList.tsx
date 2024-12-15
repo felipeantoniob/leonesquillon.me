@@ -1,43 +1,27 @@
-import type { MutableRefObject } from "react";
-
 import type { Project } from "@leon/cms/types";
 
 import { cn } from "~/lib/utils";
 
 interface NavListProps {
   projects: Project[];
-  activeProjectIndex: number;
-  containerRef: MutableRefObject<HTMLDivElement | null>;
+  selectedSectionIndex: number;
+  scrollToSection: (index: number) => void;
 }
 
 const NavList = ({
   projects,
-  activeProjectIndex,
-  containerRef,
+  selectedSectionIndex,
+  scrollToSection,
 }: NavListProps) => {
-  const handleClick = (index: number) => {
-    const container = containerRef.current;
-
-    if (!container) return;
-
-    const scrollPercentage = index / (projects.length - 1);
-    console.log(scrollPercentage);
-
-    const scrollPosition =
-      (container.scrollHeight - container.clientHeight) * scrollPercentage;
-
-    container.scrollTo({ top: scrollPosition, behavior: "smooth" });
-  };
-
   return (
     <div className="mt-10 flex max-w-64 flex-col gap-5">
       {projects.map((project, index) => (
         <button
           key={index}
-          onClick={() => handleClick(index)}
+          onClick={() => scrollToSection(index)}
           className={cn(
             "text-left font-sans font-medium text-[#777]",
-            index === activeProjectIndex && "text-white",
+            index === selectedSectionIndex && "text-white",
           )}
         >
           {project.title}

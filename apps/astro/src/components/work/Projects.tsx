@@ -1,11 +1,9 @@
-import { useState } from "react";
-
 import type { Project } from "@leon/cms/types";
 
 import ContentContainer from "~/components/common/ContentContainer";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
-import useScrollPositionIndex from "~/hooks/useScrollPositionIndex";
+import useScrollSectionIndex from "~/hooks/useScrollSectionIndex";
 import MobileHeader from "../common/MobileHeader";
 import NavList from "./NavList";
 import ProjectList from "./ProjectList";
@@ -15,8 +13,8 @@ interface ProjectsProps {
 }
 
 const Projects = ({ projects }: ProjectsProps) => {
-  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
-  const containerRef = useScrollPositionIndex(projects, setActiveProjectIndex);
+  const { scrollContainerRef, selectedSectionIndex, scrollToSection } =
+    useScrollSectionIndex(projects);
 
   return (
     <>
@@ -28,11 +26,14 @@ const Projects = ({ projects }: ProjectsProps) => {
           </RailNav>
           <NavList
             projects={projects}
-            activeProjectIndex={activeProjectIndex}
-            containerRef={containerRef}
+            selectedSectionIndex={selectedSectionIndex}
+            scrollToSection={scrollToSection}
           />
         </RailContainer>
-        <ProjectList projects={projects} containerRef={containerRef} />
+        <ProjectList
+          projects={projects}
+          scrollContainerRef={scrollContainerRef}
+        />
       </ContentContainer>
     </>
   );

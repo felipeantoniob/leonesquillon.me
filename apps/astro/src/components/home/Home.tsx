@@ -1,8 +1,6 @@
-import { useState } from "react";
-
 import type { Bio, Experience } from "@leon/cms/types";
 
-import useScrollPositionIndex from "~/hooks/useScrollPositionIndex";
+import useScrollSectionIndex from "~/hooks/useScrollSectionIndex";
 import ContentContainer from "../common/ContentContainer";
 import MobileHeader from "../common/MobileHeader";
 import MobileNavList from "../common/MobileNavList";
@@ -18,19 +16,18 @@ interface HomeProps {
 }
 
 const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {
-  const [selectedSection, setSelectedSection] = useState(0);
-
-  const containerRef = useScrollPositionIndex([1, 2, 3], setSelectedSection);
+  const { scrollContainerRef, scrollToSection, selectedSectionIndex } =
+    useScrollSectionIndex([1, 2, 3]);
 
   return (
     <>
       <ContentContainer className="h-screen max-h-screen min-h-screen flex-col border-r">
         <MobileHeader title="LEON ESQUILLON" />
         <DesktopNavList
-          selectedSection={selectedSection}
-          containerRef={containerRef}
+          selectedSectionIndex={selectedSectionIndex}
+          scrollToSection={scrollToSection}
         />
-        <div ref={containerRef} className="flex-1 overflow-y-auto">
+        <div ref={scrollContainerRef} className="flex-1 overflow-y-auto">
           <div className="h-full">
             <IntroductionSection />
           </div>
@@ -41,17 +38,9 @@ const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {
             <BioSection bio={bio} bioImageUrl={bioImageUrl} />
           </div>
         </div>
-        {/* <div className="flex flex-1 overflow-y-auto w-full flex-col items-center gap-48 lg:gap-96 lg:overflow-scroll "> */}
-        {/*   <div className="h-full bg-purple-800 flex-col items-center  px-4 pb-10 lg:pb-40 pt-8 lg:pt-20"> */}
-        {/*     <IntroductionSection /> */}
-        {/*     <ExperienceSection experience={experience} /> */}
-        {/*     <BioSection bio={bio} bioImageUrl={bioImageUrl} /> */}
-        {/*   </div> */}
-        {/* </div> */}
-
         <MobileNavList
-          selectedSection={selectedSection}
-          containerRef={containerRef}
+          selectedSectionIndex={selectedSectionIndex}
+          scrollToSection={scrollToSection}
         />
       </ContentContainer>
     </>
