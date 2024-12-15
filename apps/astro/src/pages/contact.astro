@@ -11,7 +11,6 @@ import Layout from "~/layouts/Layout.astro";
 ---
 
 <Layout>
-  <MobileHeader title="CONTACT" client:load />
   <RailContainer className="p-0">
     <RailNav className="h-full py-20 pe-10 ps-20" href="/">
       <Image
@@ -30,6 +29,7 @@ import Layout from "~/layouts/Layout.astro";
   </RailContainer>
 
   <ContentContainer className="min-h-screen border-l">
+    <MobileHeader title="CONTACT" client:load />
     <RailContainer disableGradient>
       <RailNav href="/contact" isActive>CONTACT</RailNav>
     </RailContainer>

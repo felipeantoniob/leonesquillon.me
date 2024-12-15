@@ -29,7 +29,7 @@ const CursorHighlight = () => {
     width: 700,
     height: 700,
     background:
-      "radial-gradient(circle, rgba(200, 200, 200, 0.1) 10%, rgba(255, 255, 255, 0) 90%)",
+      "radial-gradient(circle, rgba(69, 69, 69, 0.1) 0%,rgba(15, 15, 15, 0) 60%)",
     borderRadius: "50%",
     pointerEvents: "none",
     transform: "translate(-50%, -50%)",
@@ -39,7 +39,7 @@ const CursorHighlight = () => {
     top: position.y,
   };
 
-  return <div style={highlightStyle} />;
+  return <div style={highlightStyle} className="hidden lg:block" />;
 };
 
 export default CursorHighlight;

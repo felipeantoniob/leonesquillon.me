@@ -6,7 +6,7 @@ import instagramSvg from "~/assets/instagram.svg";
 import linkedinSvg from "~/assets/linkedin.svg";
 ---
 
-<div class="flex h-full min-h-screen w-full flex-col justify-center p-10">
+<div class="flex h-full w-full flex-1 flex-col justify-center p-10 lg:h-screen">
   <div class="flex flex-col gap-8 lg:gap-20">
     <p class="text-center font-serif text-5xl text-[#2856E8] lg:text-7xl">
       Open to work 2025
@@ -31,22 +31,26 @@ import linkedinSvg from "~/assets/linkedin.svg";
         />
       </div>
       <div class="flex flex-row gap-4">
-        <Image
-          src={linkedinSvg}
-          alt="linkedin"
-          width="32"
-          height="32"
-          class="max-w-fit"
-          loading="eager"
-        />
-        <Image
-          src={instagramSvg}
-          alt="instagram"
-          width="32"
-          height="32"
-          class="max-w-fit"
-          loading="eager"
-        />
+        <a href="https://ph.linkedin.com/in/leonesquillon">
+          <Image
+            src={linkedinSvg}
+            alt="linkedin"
+            width="32"
+            height="32"
+            class="max-w-fit"
+            loading="eager"
+          />
+        </a>
+        <a href="https://www.instagram.com/leon.e_/">
+          <Image
+            src={instagramSvg}
+            alt="instagram"
+            width="32"
+            height="32"
+            class="max-w-fit"
+            loading="eager"
+          />
+        </a>
       </div>
     </div>
   </div>
