@@ -9,13 +9,13 @@ interface BioSectionProps {
 
 const BioSection = ({ bio, bioImageUrl }: BioSectionProps) => {
   return (
-    <div className="flex h-full min-h-fit max-w-screen-lg flex-col gap-10 px-10 pt-16">
+    <div className="flex h-full min-h-fit max-w-screen-lg flex-col justify-center gap-4 p-4 lg:gap-10 lg:p-8">
       <img
         src={bioImageUrl ?? ""}
         alt="Picture of Leon Esquillon"
-        className="aspect-[560/315] w-full  bg-gray-500 object-contain"
+        className="mx-auto aspect-[560/315] w-full max-w-screen-sm bg-gray-500 object-contain lg:max-w-screen-xl"
       />
-      <div className="font-sans font-medium text-white">
+      <div className="flex flex-col gap-1 font-sans text-sm font-medium text-white">
         {/* @ts-expect-error TODO */}
         <PortableText value={bio.bioContent} />
       </div>

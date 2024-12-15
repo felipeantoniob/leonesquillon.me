@@ -40,7 +40,7 @@ const ExperienceSection = ({ experience }: ExperienceSectionProps) => {
           <div className="flex flex-1 flex-col justify-between pb-8 pt-2">
             <p
               className={cn(
-                "font-sans text-base font-semibold text-[#B0B0B0]",
+                "font-sans text-sm font-semibold text-[#B0B0B0] lg:text-base",
                 index === 0 && "text-[#4379F3]",
               )}
             >

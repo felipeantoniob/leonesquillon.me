@@ -14,8 +14,11 @@ const useScrollPositionIndex = <T>(
     const containerHeight = container.clientHeight;
     const contentHeight = container.scrollHeight;
 
-    const scrollPercentage =
-      (scrollPosition / (contentHeight - containerHeight)) * 100;
+    const scrollPercentage = Math.max(
+      (scrollPosition / (contentHeight - containerHeight)) * 100,
+      0
+    );
+
     const section = Math.min(
       Math.floor((scrollPercentage / 100) * items.length),
       items.length - 1,

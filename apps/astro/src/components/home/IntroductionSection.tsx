@@ -1,7 +1,7 @@
 const IntroductionSection = () => {
   return (
-    <div className="flex h-full w-full flex-col justify-center gap-10 px-8 pt-16">
-      <div className="font-serif text-3xl text-white">
+    <div className="flex h-full w-full flex-col justify-center gap-10 px-8">
+      <div className="font-serif text-2xl text-white lg:text-3xl">
         <p>
           Hi, I’m Leon! A Product Designer that turns ideas into impactful
           digital experiences.
@@ -10,7 +10,7 @@ const IntroductionSection = () => {
         <p>
           With over five years of experience in retail and e-commerce, I thrive
           on collaboration and crafting intuitive solutions that make life
-          easier for people every day.",
+          easier for people every day.
         </p>
       </div>
     </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import type { Bio, Experience } from "@leon/cms/types";
 
+import useScrollPositionIndex from "~/hooks/useScrollPositionIndex";
 import ContentContainer from "../common/ContentContainer";
 import MobileHeader from "../common/MobileHeader";
 import MobileNavList from "../common/MobileNavList";
@@ -10,8 +11,6 @@ import DesktopNavList from "./DesktopNavList";
 import ExperienceSection from "./ExperienceSection";
 import IntroductionSection from "./IntroductionSection";
 
-type Section = "Introduction" | "Experience" | "Bio";
-
 interface HomeProps {
   bio: Bio;
   experience: Experience[];
@@ -19,8 +18,9 @@ interface HomeProps {
 }
 
 const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {
-  const [selectedSection, setSelectedSection] =
-    useState<Section>("Introduction");
+  const [selectedSection, setSelectedSection] = useState(0);
+
+  const containerRef = useScrollPositionIndex([1, 2, 3], setSelectedSection);
 
   return (
     <>
@@ -28,9 +28,9 @@ const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {
         <MobileHeader title="LEON ESQUILLON" />
         <DesktopNavList
           selectedSection={selectedSection}
-          setSelectedSection={setSelectedSection}
+          containerRef={containerRef}
         />
-        <div className="flex-1 overflow-y-auto">
+        <div ref={containerRef} className="flex-1 overflow-y-auto">
           <div className="h-full">
             <IntroductionSection />
           </div>
@@ -49,7 +49,10 @@ const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {
         {/*   </div> */}
         {/* </div> */}
 
-        <MobileNavList />
+        <MobileNavList
+          selectedSection={selectedSection}
+          containerRef={containerRef}
+        />
       </ContentContainer>
     </>
   );
