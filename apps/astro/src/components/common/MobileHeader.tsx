@@ -4,7 +4,10 @@ import leonLogoSvg from "~/assets/leon-logo.svg";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
+  DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from "~/components/ui/dialog";
 import { cn } from "~/lib/utils";
@@ -40,8 +43,16 @@ const MobileHeader = ({ title }: MobileHeaderProps) => {
         </DialogTrigger>
 
         <DialogContent className="min-w-screen max-w-screen max-h-screen min-h-screen rounded-none border-0 bg-background sm:rounded-none">
+          <DialogHeader>
+            <DialogTitle className="sr-only">Navigation Modal</DialogTitle>
+            <DialogDescription className="sr-only">
+              A full-screen menu allowing you to navigate to different sections
+              of the site
+            </DialogDescription>
+          </DialogHeader>
           <div className="flex h-full flex-1 flex-col items-center justify-center gap-8 font-sans text-xl font-bold text-muted-foreground">
             <a
+              aria-label="Navigate to the Home page"
               href={
                 title.includes("WORK") || title.includes("CONTACT")
                   ? "/"
@@ -74,6 +85,7 @@ const MobileHeader = ({ title }: MobileHeaderProps) => {
               LEON ESQUILLON
             </a>
             <a
+              aria-label="Navigate to the Work page"
               href={title.includes("WORK") ? undefined : "/work"}
               className={cn(title.includes("WORK") && "text-foreground")}
             >
@@ -81,6 +93,7 @@ const MobileHeader = ({ title }: MobileHeaderProps) => {
             </a>
 
             <a
+              aria-label="Navigate to the Contact page"
               href={title.includes("CONTACT") ? undefined : "/contact"}
               className={cn(title.includes("CONTACT") && "text-foreground")}
             >
