@@ -3,10 +3,8 @@ import leonLogoWhiteSvg from "~/assets/leon-logo-white.svg";
 import leonLogoSvg from "~/assets/leon-logo.svg";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogFooter,
-  DialogHeader,
   DialogTrigger,
 } from "~/components/ui/dialog";
 import { cn } from "~/lib/utils";
@@ -42,17 +40,6 @@ const MobileHeader = ({ title }: MobileHeaderProps) => {
         </DialogTrigger>
 
         <DialogContent className="min-w-screen max-w-screen max-h-screen min-h-screen rounded-none border-0 bg-background sm:rounded-none">
-          <DialogHeader className="items-end self-start pt-2">
-            <DialogClose>
-              <img
-                src={hamburgerIconSvg.src}
-                alt="hamburger-icon"
-                width="20"
-                height="20"
-                className="max-w-fit"
-              />
-            </DialogClose>
-          </DialogHeader>
           <div className="flex h-full flex-1 flex-col items-center justify-center gap-8 font-sans text-xl font-bold text-muted-foreground">
             <a
               href={
