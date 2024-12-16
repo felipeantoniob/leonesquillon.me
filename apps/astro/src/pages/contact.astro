@@ -1,8 +1,6 @@
 ---
-import { Image } from "astro:assets";
-
-import leonLogoSvg from "~/assets/leon-logo.svg";
 import ContentContainer from "~/components/common/ContentContainer";
+import HomeRailNav from "~/components/common/HomeRailNav.astro";
 import MobileHeader from "~/components/common/MobileHeader";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
@@ -11,18 +9,7 @@ import Layout from "~/layouts/Layout.astro";
 ---
 
 <Layout>
-  <RailContainer className="p-0">
-    <RailNav className="h-full py-20 pe-10 ps-20" href="/">
-      <Image
-        src={leonLogoSvg}
-        alt="logo"
-        width="24"
-        height="24"
-        class="aspect-square max-w-fit"
-        loading="eager"
-      />
-    </RailNav>
-  </RailContainer>
+  <HomeRailNav />
 
   <RailContainer className="border border-l p-0">
     <RailNav className="h-full px-10 py-20" href="/work">WORK</RailNav>

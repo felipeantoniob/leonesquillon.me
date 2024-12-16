@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+
+import leonLogoWhiteSvg from "~/assets/leon-logo-white.svg";
+import leonLogoSvg from "~/assets/leon-logo.svg";
+import RailContainer from "./RailContainer";
+import RailNav from "./RailNav";
+---
+
+<RailContainer className="p-0">
+  <RailNav className="h-full py-20 pe-10 ps-20" href="/">
+    <div class="relative h-6 w-6">
+      <Image
+        src={leonLogoSvg}
+        alt="logo"
+        width="24"
+        height="24"
+        class="absolute aspect-square max-w-fit transition group-hover/nav:opacity-0"
+        loading="eager"
+      />
+      <Image
+        src={leonLogoWhiteSvg}
+        alt="logo"
+        width="24"
+        height="24"
+        class="absolute aspect-square max-w-fit opacity-0 transition group-hover/nav:opacity-100"
+        loading="eager"
+      />
+    </div>
+  </RailNav>
+</RailContainer>
