@@ -12,7 +12,7 @@ const MobileNavList = ({
   scrollToSection,
 }: MobileNavListProps) => {
   return (
-    <div className="flex flex-col gap-2 border-t-[1px] border-border/10 p-4 lg:hidden">
+    <div className="flex flex-col items-start gap-2 border-t-[1px] border-border/10 p-4 lg:hidden">
       {SECTION.map((section, index) => (
         <button
           onClick={() => scrollToSection(index)}
