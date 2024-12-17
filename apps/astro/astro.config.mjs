@@ -1,4 +1,5 @@
 // @ts-check
+import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
@@ -22,6 +23,7 @@ export default defineConfig({
       useCdn: false, // for static builds
     }),
     sitemap(),
+    partytown(),
   ],
   experimental: {
     svg: true,
