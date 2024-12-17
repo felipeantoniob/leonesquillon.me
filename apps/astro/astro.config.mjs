@@ -1,11 +1,18 @@
 // @ts-check
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import sanity from "@sanity/astro";
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://leon-esquillon.vercel.app",
+  output: "static",
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "load",
+  },
   integrations: [
     react(),
     tailwind(),
@@ -14,6 +21,7 @@ export default defineConfig({
       dataset: "production",
       useCdn: false, // for static builds
     }),
+    sitemap(),
   ],
   experimental: {
     svg: true,
