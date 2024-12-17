@@ -1,0 +1,51 @@
+---
+import type { Props as SEOProps } from "astro-seo";
+import { SEO as AstroSEO } from "astro-seo";
+
+import { BASE_URL } from "~/lib/baseUrl";
+
+interface Props extends SEOProps {
+  imageUrl?: string;
+  type?: "article" | "website" | "profile";
+  slot: "seo";
+}
+
+const { props } = Astro;
+
+const metadata = {
+  title: props.title ?? "Leon Esquillon",
+  description:
+    props.description ??
+    "UI/UX Designer. Crafting intuitive and user-centered digital experiences. Check out my portfolio showcasing my design work.",
+  image: props.imageUrl ?? `${BASE_URL}/og_main.png`,
+};
+
+const defaultProps: SEOProps = {
+  title: metadata.title,
+  description: metadata.description,
+  openGraph: {
+    basic: {
+      title: metadata.title,
+      type: props.type ?? "website",
+      image: metadata.image,
+      ...props.openGraph?.basic,
+    },
+    optional: {
+      siteName: metadata.title,
+      description: metadata.description,
+      ...props.openGraph?.optional,
+    },
+  },
+  twitter: {
+    title: metadata.title,
+    description: metadata.description,
+    card: "summary_large_image",
+    image: metadata.image,
+    imageAlt: metadata.title,
+  },
+};
+
+const combinedProps = { ...defaultProps, ...props };
+---
+
+<AstroSEO {...combinedProps} />

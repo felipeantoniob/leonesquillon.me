@@ -2,22 +2,17 @@
 import BaseHead from "~/components/BaseHead.astro";
 import Frame from "~/components/common/Frame";
 import CursorHighlight from "~/components/CursorHighlight";
+import SEO from "~/components/SEO.astro";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead />
-    <title>Leon Esquillon</title>
-    <meta name="author" content="Leon Esquillon" />
-    <meta
-      name="description"
-      content="Leon Esquillon - UI/UX Designer. Crafting intuitive and user-centered digital experiences. Check out my portfolio showcasing my design work."
-    />
-    <meta
-      name="keywords"
-      content="UI Design, UX Design, User Interface, User Experience, Web Design, Portfolio, Frontend Design, Interaction Design"
-    />
+    <slot name="seo">
+      {/* @ts-expect-error: slot prop isn't necessary in this component */}
+      <SEO />
+    </slot>
   </head>
 
   <body class="dark bg-background lg:overflow-hidden">

@@ -4,7 +4,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import sanity from "@sanity/astro";
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +25,26 @@ export default defineConfig({
     sitemap(),
     partytown(),
   ],
+  env: {
+    schema: {
+      PUBLIC_VERCEL_ENV: envField.string({
+        context: "client",
+        access: "public",
+        optional: true,
+        default: "development",
+      }),
+      PUBLIC_VERCEL_PROJECT_PRODUCTION_URL: envField.string({
+        context: "client",
+        access: "public",
+        optional: true,
+      }),
+      PUBLIC_VERCEL_URL: envField.string({
+        context: "client",
+        access: "public",
+        optional: true,
+      }),
+    },
+  },
   experimental: {
     svg: true,
   },

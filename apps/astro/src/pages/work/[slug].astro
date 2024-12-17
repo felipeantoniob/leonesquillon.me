@@ -13,6 +13,7 @@ import ContentContainer from "~/components/common/ContentContainer";
 import MobileHeader from "~/components/common/MobileHeader";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
+import SEO from "~/components/SEO.astro";
 import ProjectDetails from "~/components/work/ProjectDetails.astro";
 import Layout from "~/layouts/Layout.astro";
 import { urlFor } from "~/lib/sanity";
@@ -42,6 +43,11 @@ const sampleImages = project.sampleImages
 ---
 
 <Layout>
+  <SEO
+    title=`Leon Esquillon | ${project.title}`
+    description="Explore this UI/UX design project, showcasing the process, challenges, and user-centered solutions."
+    slot="seo"
+  />
   <RailContainer className="ps-20">
     <RailNav href="/">LEON</RailNav>
   </RailContainer>

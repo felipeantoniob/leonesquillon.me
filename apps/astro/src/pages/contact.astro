@@ -5,10 +5,16 @@ import MobileHeader from "~/components/common/MobileHeader";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import ContactInfo from "~/components/contact/ContactInfo.astro";
+import SEO from "~/components/SEO.astro";
 import Layout from "~/layouts/Layout.astro";
 ---
 
 <Layout>
+  <SEO
+    title={"Leon Esquillon | Contact"}
+    description="Get in touch with me! Whether you have a project in mind or just want to connect, feel free to reach out. I'm always open to new opportunities and collaborations."
+    slot="seo"
+  />
   <HomeRailNav />
 
   <RailContainer className="border border-l p-0">

@@ -6,6 +6,7 @@ import type { Project } from "@leon/cms/types";
 import HomeRailNav from "~/components/common/HomeRailNav.astro";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
+import SEO from "~/components/SEO.astro";
 import Projects from "~/components/work/Projects";
 import Layout from "~/layouts/Layout.astro";
 
@@ -18,6 +19,11 @@ const projects = await sanityClient.fetch<Project[]>(PROJECTS_QUERY);
 ---
 
 <Layout>
+  <SEO
+    title={"Leon Esquillon | Work"}
+    description="Explore my portfolio of UI/UX design projects, showcasing innovative solutions, user-centered designs, and interactive experiences. See how I transform ideas into intuitive, beautiful digital products."
+    slot="seo"
+  />
   <HomeRailNav />
 
   <Projects projects={projects} client:load />
