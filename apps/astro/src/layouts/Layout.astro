@@ -23,11 +23,11 @@ import CursorHighlight from "~/components/CursorHighlight";
   <body class="dark bg-background lg:overflow-hidden">
     <Frame client:only />
     <CursorHighlight client:load />
-    <div
-      class="mx-auto flex min-h-screen max-w-screen-2xl flex-col lg:flex-row"
+    <main
+      class="mx-auto flex min-h-screen max-w-screen-2xl flex-col transition-all lg:flex-row"
     >
       <slot />
-    </div>
+    </main>
   </body>
 </html>
 

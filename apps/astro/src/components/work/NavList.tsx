@@ -20,7 +20,7 @@ const NavList = ({
           key={index}
           onClick={() => scrollToSection(index)}
           className={cn(
-            "text-left font-sans font-medium text-muted-foreground",
+            "text-left font-sans font-medium text-muted-foreground transition-all hover:text-foreground",
             index === selectedSectionIndex && "text-foreground",
           )}
         >

@@ -36,7 +36,7 @@ const DesktopNavList = ({
             >
               <p
                 className={cn(
-                  "text-left font-sans text-base font-medium text-muted-foreground",
+                  "text-left font-sans text-base font-medium text-muted-foreground transition hover:text-foreground",
                   index === selectedSectionIndex && "text-foreground",
                 )}
               >
