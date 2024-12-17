@@ -9,7 +9,7 @@ const ContentContainer = ({
   return (
     <div
       className={cn(
-        "flex h-full w-full flex-col border-border/10 lg:flex-row",
+        "flex h-full w-full flex-col border-border lg:flex-row",
         className,
       )}
     >

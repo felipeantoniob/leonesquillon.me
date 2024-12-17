@@ -20,9 +20,9 @@ const ProjectList = ({ projects, scrollContainerRef }: ProjectListProps) => {
           <div
             key={i}
             id={project.slug.current}
-            className="flex flex-col gap-5 text-foreground"
+            className="flex flex-col gap-5 text-foreground xl:flex-row"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-1 flex-col gap-2">
               <p className="font-serif text-3xl font-medium">{project.title}</p>
               <p className="font-sans text-sm text-foreground">
                 {project.period}
@@ -31,7 +31,7 @@ const ProjectList = ({ projects, scrollContainerRef }: ProjectListProps) => {
             </div>
             <a
               href={`/work/${project.slug.current}`}
-              className="z-40 aspect-[693/338] w-full bg-gray-700"
+              className="z-40 aspect-[693/338] w-full flex-1 bg-gray-700"
             >
               <img
                 src={urlFor(project.coverImage ?? "").url()}
