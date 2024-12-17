@@ -1,6 +1,6 @@
 ---
 import BaseHead from "~/components/BaseHead.astro";
-import Frame from "~/components/common/Frame";
+import Frame from "~/components/common/Frame.astro";
 import CursorHighlight from "~/components/CursorHighlight";
 import SEO from "~/components/SEO.astro";
 ---
@@ -16,7 +16,7 @@ import SEO from "~/components/SEO.astro";
   </head>
 
   <body class="dark bg-background lg:overflow-hidden">
-    <Frame client:only />
+    <Frame />
     <CursorHighlight client:load />
     <main
       class="mx-auto flex min-h-screen max-w-screen-2xl flex-col transition-all lg:flex-row"
