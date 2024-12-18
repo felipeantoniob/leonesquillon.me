@@ -29,6 +29,8 @@ export async function getStaticPaths(): Promise<{ params: { slug: string } }> {
   return await sanityClient.fetch(SLUGS_QUERY, Astro.params);
 }
 
+const logoImageUrl = project.logo ? urlFor(project.logo)?.url() : null;
+
 const sampleImages = project.sampleImages
   ? project.sampleImages
       .map((sampleImage) => {
@@ -65,7 +67,14 @@ const sampleImages = project.sampleImages
       <div class="flex flex-col gap-8 lg:flex-row">
         <div class="flex w-full flex-col gap-5">
           <div>
-            <Image src={tokiSvg} alt="logo" width="121" height="56" />
+            {logoImageUrl && <Image src={logoImageUrl} alt="logo" inferSize />}
+            {
+              !logoImageUrl && (
+                <p class="font-sans text-3xl font-medium text-foreground">
+                  {project.title}
+                </p>
+              )
+            }
           </div>
           <div class="flex h-10 flex-row gap-3">
             {
@@ -76,8 +85,8 @@ const sampleImages = project.sampleImages
               )
             }
             {
-              project.appStoreUrl && (
-                <a href={project.appStoreUrl}>
+              project.iosUrl && (
+                <a href={project.iosUrl}>
                   <Image
                     src={appStoreSvg}
                     alt="app-store"
@@ -87,8 +96,8 @@ const sampleImages = project.sampleImages
               )
             }
             {
-              project.googlePlayUrl && (
-                <a href={project.googlePlayUrl}>
+              project.androidUrl && (
+                <a href={project.androidUrl}>
                   <Image
                     src={googlePlaySvg}
                     alt="google-play"
