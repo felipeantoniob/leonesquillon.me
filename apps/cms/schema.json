@@ -663,6 +663,13 @@
           "type": "number"
         },
         "optional": true
+      },
+      "gradient": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
       }
     }
   },

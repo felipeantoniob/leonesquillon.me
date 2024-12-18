@@ -125,6 +125,12 @@ export const projectType = defineType({
       initialValue: 0,
       validation: (rule) => rule.integer().min(0),
     }),
+    {
+      name: 'gradient',
+      title: 'Background Gradient',
+      type: 'string',
+      description: 'CSS gradient string or predefined class',
+    },
   ],
 })
 

@@ -123,6 +123,7 @@ export type Project = {
   }>
   tags?: Array<string>
   sortOrder?: number
+  gradient?: string
 }
 
 export type Slug = {

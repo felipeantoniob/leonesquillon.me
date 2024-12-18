@@ -1,8 +1,12 @@
 ---
+import type { HTMLAttributes } from "astro/types";
+
 import BaseHead from "~/components/BaseHead.astro";
 import Frame from "~/components/common/Frame.astro";
 import CursorHighlight from "~/components/CursorHighlight";
 import SEO from "~/components/SEO.astro";
+
+const { style, ...props }: HTMLAttributes<"body"> = Astro.props;
 ---
 
 <!doctype html>
@@ -15,7 +19,7 @@ import SEO from "~/components/SEO.astro";
     </slot>
   </head>
 
-  <body class="dark bg-background lg:overflow-hidden">
+  <body class="dark bg-background lg:overflow-hidden" style={style} {...props}>
     <Frame />
     <CursorHighlight client:load />
     <main

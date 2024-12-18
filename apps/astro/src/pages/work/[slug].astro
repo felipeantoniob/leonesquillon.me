@@ -4,10 +4,7 @@ import { sanityClient } from "sanity:client";
 
 import type { Project } from "@leon/cms/types";
 
-import appStoreSvg from "~/assets/app-store-badge.svg";
 import arrowLeftSvg from "~/assets/arrow-left.svg";
-import googlePlaySvg from "~/assets/google-play-badge.svg";
-import webBadgeSvg from "~/assets/web-badge.svg";
 import ContentContainer from "~/components/common/ContentContainer";
 import MobileHeader from "~/components/common/MobileHeader";
 import RailContainer from "~/components/common/RailContainer";
@@ -43,7 +40,7 @@ const sampleImages = project.sampleImages
   : [];
 ---
 
-<Layout>
+<Layout style={{ background: project.gradient }}>
   <SEO
     title=`Leon Esquillon | ${project.title}`
     description="Explore this UI/UX design project, showcasing the process, challenges, and user-centered solutions."
@@ -54,55 +51,29 @@ const sampleImages = project.sampleImages
   </RailContainer>
   <MobileHeader title="WORK" client:load />
   <ContentContainer
-    className="h-screen gap-10 overflow-y-auto border-x px-4 pb-16 lg:flex-col lg:px-10"
+    className="h-screen gap-10 overflow-y-auto px-4 pb-16 lg:flex-col lg:border-x lg:px-10"
   >
     <div class="flex flex-col gap-10 pt-2 lg:pt-20">
-      <a href="/work" class="flex flex-row items-center gap-2">
+      <a
+        href="/work"
+        class="flex w-fit flex-row items-center gap-2 rounded-md border border-border px-2 py-1"
+      >
         <Image src={arrowLeftSvg} alt="arrow-left" width="16" height="16" />
         <p class="font-sans text-sm font-semibold text-muted-foreground">
           Back
         </p>
       </a>
       <div class="flex flex-col gap-8 lg:flex-row">
-        <div class="flex w-full flex-col gap-5">
+        <div
+          class="flex w-full flex-1 flex-col items-start justify-center gap-5 lg:items-center"
+        >
           <div>
             {logoImageUrl && <Image src={logoImageUrl} alt="logo" inferSize />}
             {
               !logoImageUrl && (
-                <p class="font-sans text-3xl font-medium text-foreground">
+                <p class="font-sans text-5xl font-medium text-foreground">
                   {project.title}
                 </p>
-              )
-            }
-          </div>
-          <div class="flex h-10 flex-row gap-3">
-            {
-              project.webUrl && (
-                <a href={project.webUrl}>
-                  <Image src={webBadgeSvg} alt="web" class="h-6 w-[62px]" />
-                </a>
-              )
-            }
-            {
-              project.iosUrl && (
-                <a href={project.iosUrl}>
-                  <Image
-                    src={appStoreSvg}
-                    alt="app-store"
-                    class="h-6 w-[80px]"
-                  />
-                </a>
-              )
-            }
-            {
-              project.androidUrl && (
-                <a href={project.androidUrl}>
-                  <Image
-                    src={googlePlaySvg}
-                    alt="google-play"
-                    class="h-6 w-[72px]"
-                  />
-                </a>
               )
             }
           </div>
