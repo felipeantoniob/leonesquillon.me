@@ -1,4 +1,3 @@
-import leonLogoSvg from "~/assets/leon-logo-white.svg";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import { cn } from "~/lib/utils";

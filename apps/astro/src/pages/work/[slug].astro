@@ -68,19 +68,35 @@ const sampleImages = project.sampleImages
             <Image src={tokiSvg} alt="logo" width="121" height="56" />
           </div>
           <div class="flex h-10 flex-row gap-3">
-            <a href="/">
-              <Image src={webBadgeSvg} alt="web" class="h-6 w-[62px]" />
-            </a>
-            <a href="/">
-              <Image src={appStoreSvg} alt="app-store" class="h-6 w-[80px]" />
-            </a>
-            <a href="/">
-              <Image
-                src={googlePlaySvg}
-                alt="google-play"
-                class="h-6 w-[72px]"
-              />
-            </a>
+            {
+              project.webUrl && (
+                <a href={project.webUrl}>
+                  <Image src={webBadgeSvg} alt="web" class="h-6 w-[62px]" />
+                </a>
+              )
+            }
+            {
+              project.appStoreUrl && (
+                <a href={project.appStoreUrl}>
+                  <Image
+                    src={appStoreSvg}
+                    alt="app-store"
+                    class="h-6 w-[80px]"
+                  />
+                </a>
+              )
+            }
+            {
+              project.googlePlayUrl && (
+                <a href={project.googlePlayUrl}>
+                  <Image
+                    src={googlePlaySvg}
+                    alt="google-play"
+                    class="h-6 w-[72px]"
+                  />
+                </a>
+              )
+            }
           </div>
         </div>
         <ProjectDetails project={project} />
