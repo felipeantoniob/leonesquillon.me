@@ -35,7 +35,7 @@ const ProjectList = ({ projects, scrollContainerRef }: ProjectListProps) => {
             >
               <img
                 src={urlFor(project.coverImage ?? "").url()}
-                className="w-fit object-contain"
+                className="w-full object-contain"
               />
             </a>
           </div>
