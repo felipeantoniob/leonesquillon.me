@@ -11,6 +11,8 @@ import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import SEO from "~/components/SEO.astro";
 import ProjectDetails from "~/components/work/ProjectDetails.astro";
+import ProjectGradientBackground from "~/components/work/ProjectGradientBackground";
+import ProjectLogo from "~/components/work/ProjectLogo";
 import Layout from "~/layouts/Layout.astro";
 import { urlFor } from "~/lib/sanity";
 
@@ -25,8 +27,12 @@ export async function getStaticPaths(): Promise<{ params: { slug: string } }> {
   return await sanityClient.fetch(SLUGS_QUERY, Astro.params);
 }
 
-const logoImageUrl = project.logos
+const darkLogoImageUrl = project.logos
   ? urlFor(project.logos.darkMode ?? "")?.url()
+  : null;
+
+const lightLogoImageUrl = project.logos
+  ? urlFor(project.logos.lightMode ?? "")?.url()
   : null;
 
 const sampleImages = project.sampleImages
@@ -42,16 +48,13 @@ const sampleImages = project.sampleImages
   : [];
 ---
 
-<Layout
-  style={{
-    background: project.gradients?.darkMode,
-  }}
->
+<Layout>
   <SEO
     title=`Leon Esquillon | ${project.title}`
     description="Explore this UI/UX design project, showcasing the process, challenges, and user-centered solutions."
     slot="seo"
   />
+  <ProjectGradientBackground gradients={project.gradients} client:only />
   <RailContainer className="ps-20">
     <RailNav href="/">LEON</RailNav>
   </RailContainer>
@@ -74,14 +77,28 @@ const sampleImages = project.sampleImages
           class="flex w-full flex-1 flex-col items-start justify-center gap-5 lg:items-center"
         >
           <div>
-            {logoImageUrl && <Image src={logoImageUrl} alt="logo" inferSize />}
-            {
-              !logoImageUrl && (
-                <p class="font-sans text-5xl font-medium text-foreground">
-                  {project.title}
-                </p>
-              )
-            }
+            <ProjectLogo client:only>
+              {
+                darkLogoImageUrl && (
+                  <Image
+                    slot="darkModeLogo"
+                    src={darkLogoImageUrl}
+                    alt="logo"
+                    inferSize
+                  />
+                )
+              }
+              {
+                lightLogoImageUrl && (
+                  <Image
+                    slot="lightModeLogo"
+                    src={lightLogoImageUrl}
+                    alt="logo"
+                    inferSize
+                  />
+                )
+              }
+            </ProjectLogo>
           </div>
         </div>
         <ProjectDetails project={project} />

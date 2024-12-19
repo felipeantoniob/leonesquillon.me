@@ -5,6 +5,7 @@ import BaseHead from "~/components/BaseHead.astro";
 import Frame from "~/components/common/Frame.astro";
 import CursorHighlight from "~/components/CursorHighlight";
 import SEO from "~/components/SEO.astro";
+import ThemeIcon from "~/components/ThemeIcon.astro";
 
 const { style, ...props }: HTMLAttributes<"body"> = Astro.props;
 ---
@@ -19,7 +20,15 @@ const { style, ...props }: HTMLAttributes<"body"> = Astro.props;
     </slot>
   </head>
 
-  <body class="dark bg-background lg:overflow-hidden" style={style} {...props}>
+  <body
+    id="body"
+    class="dark bg-background lg:overflow-hidden"
+    style={style}
+    {...props}
+  >
+    <div transition:persist class="absolute right-0 top-0 z-50 m-4 hidden">
+      <ThemeIcon transition:persist />
+    </div>
     <Frame />
     <CursorHighlight client:load />
     <main
