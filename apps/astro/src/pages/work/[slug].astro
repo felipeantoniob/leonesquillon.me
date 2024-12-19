@@ -25,7 +25,9 @@ export async function getStaticPaths(): Promise<{ params: { slug: string } }> {
   return await sanityClient.fetch(SLUGS_QUERY, Astro.params);
 }
 
-const logoImageUrl = project.logo ? urlFor(project.logo)?.url() : null;
+const logoImageUrl = project.logos
+  ? urlFor(project.logos.darkMode ?? "")?.url()
+  : null;
 
 const sampleImages = project.sampleImages
   ? project.sampleImages
@@ -40,7 +42,11 @@ const sampleImages = project.sampleImages
   : [];
 ---
 
-<Layout style={{ background: project.gradient }}>
+<Layout
+  style={{
+    background: project.gradients?.darkMode,
+  }}
+>
   <SEO
     title=`Leon Esquillon | ${project.title}`
     description="Explore this UI/UX design project, showcasing the process, challenges, and user-centered solutions."

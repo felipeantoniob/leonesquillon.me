@@ -486,63 +486,134 @@
         },
         "optional": true
       },
-      "logo": {
+      "logos": {
         "type": "objectAttribute",
         "value": {
           "type": "object",
           "attributes": {
-            "asset": {
+            "lightMode": {
               "type": "objectAttribute",
               "value": {
                 "type": "object",
                 "attributes": {
-                  "_ref": {
+                  "asset": {
                     "type": "objectAttribute",
                     "value": {
-                      "type": "string"
-                    }
+                      "type": "object",
+                      "attributes": {
+                        "_ref": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "_type": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string",
+                            "value": "reference"
+                          }
+                        },
+                        "_weak": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "boolean"
+                          },
+                          "optional": true
+                        }
+                      },
+                      "dereferencesTo": "sanity.imageAsset"
+                    },
+                    "optional": true
+                  },
+                  "hotspot": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "inline",
+                      "name": "sanity.imageHotspot"
+                    },
+                    "optional": true
+                  },
+                  "crop": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "inline",
+                      "name": "sanity.imageCrop"
+                    },
+                    "optional": true
                   },
                   "_type": {
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "reference"
+                      "value": "image"
                     }
-                  },
-                  "_weak": {
+                  }
+                }
+              },
+              "optional": true
+            },
+            "darkMode": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "object",
+                "attributes": {
+                  "asset": {
                     "type": "objectAttribute",
                     "value": {
-                      "type": "boolean"
+                      "type": "object",
+                      "attributes": {
+                        "_ref": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "_type": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string",
+                            "value": "reference"
+                          }
+                        },
+                        "_weak": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "boolean"
+                          },
+                          "optional": true
+                        }
+                      },
+                      "dereferencesTo": "sanity.imageAsset"
                     },
                     "optional": true
+                  },
+                  "hotspot": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "inline",
+                      "name": "sanity.imageHotspot"
+                    },
+                    "optional": true
+                  },
+                  "crop": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "inline",
+                      "name": "sanity.imageCrop"
+                    },
+                    "optional": true
+                  },
+                  "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string",
+                      "value": "image"
+                    }
                   }
-                },
-                "dereferencesTo": "sanity.imageAsset"
+                }
               },
               "optional": true
-            },
-            "hotspot": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "sanity.imageHotspot"
-              },
-              "optional": true
-            },
-            "crop": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "sanity.imageCrop"
-              },
-              "optional": true
-            },
-            "_type": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string",
-                "value": "image"
-              }
             }
           }
         },
@@ -664,12 +735,28 @@
         },
         "optional": true
       },
-      "gradient": {
+      "gradients": {
         "type": "objectAttribute",
         "value": {
-          "type": "string"
+          "type": "object",
+          "attributes": {
+            "lightMode": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": false
+            },
+            "darkMode": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": false
+            }
+          }
         },
-        "optional": true
+        "optional": false
       }
     }
   },

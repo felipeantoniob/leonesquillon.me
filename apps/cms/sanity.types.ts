@@ -94,16 +94,29 @@ export type Project = {
     crop?: SanityImageCrop
     _type: 'image'
   }
-  logo?: {
-    asset?: {
-      _ref: string
-      _type: 'reference'
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+  logos?: {
+    lightMode?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
     }
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
+    darkMode?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
   }
   sampleImages?: Array<{
     image?: {
@@ -123,7 +136,10 @@ export type Project = {
   }>
   tags?: Array<string>
   sortOrder?: number
-  gradient?: string
+  gradients: {
+    lightMode: string
+    darkMode: string
+  }
 }
 
 export type Slug = {

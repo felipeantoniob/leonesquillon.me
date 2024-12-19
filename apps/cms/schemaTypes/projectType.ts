@@ -74,10 +74,24 @@ export const projectType = defineType({
       description: 'The main cover image representing the project.',
     }),
     defineField({
-      name: 'logo',
-      title: 'Logo',
-      type: 'image',
-      description: 'The main logo representing the project.',
+      name: 'logos',
+      title: 'Logos',
+      type: 'object',
+      description: 'Logos for light and dark modes.',
+      fields: [
+        defineField({
+          name: 'lightMode',
+          title: 'Light Mode Logo',
+          type: 'image',
+          description: 'The main logo representing the project for light mode.',
+        }),
+        defineField({
+          name: 'darkMode',
+          title: 'Dark Mode Logo',
+          type: 'image',
+          description: 'The main logo representing the project for dark mode.',
+        }),
+      ],
     }),
     defineField({
       name: 'sampleImages',
@@ -125,12 +139,29 @@ export const projectType = defineType({
       initialValue: 0,
       validation: (rule) => rule.integer().min(0),
     }),
-    {
-      name: 'gradient',
-      title: 'Background Gradient',
-      type: 'string',
-      description: 'CSS gradient string or predefined class',
-    },
+    defineField({
+      name: 'gradients',
+      title: 'Gradients',
+      type: 'object',
+      description: 'Background gradients for light and dark modes.',
+      validation: (rule) => rule.required(),
+      fields: [
+        defineField({
+          name: 'lightMode',
+          title: 'Light Mode Background Gradient',
+          type: 'string',
+          description: 'CSS gradient string or predefined class for light mode.',
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: 'darkMode',
+          title: 'Dark Mode Background Gradient',
+          type: 'string',
+          description: 'CSS gradient string or predefined class for dark mode.',
+          validation: (rule) => rule.required(),
+        }),
+      ],
+    }),
   ],
 })
 
