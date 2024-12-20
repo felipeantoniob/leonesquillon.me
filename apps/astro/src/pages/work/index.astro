@@ -3,7 +3,9 @@ import { sanityClient } from "sanity:client";
 
 import type { Project } from "@leon/cms/types";
 
+import ContentContainer from "~/components/common/ContentContainer";
 import HomeRailNav from "~/components/common/HomeRailNav.astro";
+import MobileHeader from "~/components/common/MobileHeader";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import SEO from "~/components/SEO.astro";
@@ -26,7 +28,10 @@ const projects = await sanityClient.fetch<Project[]>(PROJECTS_QUERY);
   />
   <HomeRailNav />
 
-  <Projects projects={projects} client:load />
+  <ContentContainer className="h-screen max-h-screen min-h-screen lg:border-x">
+    <MobileHeader title="WORK" client:load />
+    <Projects projects={projects} client:load />
+  </ContentContainer>
 
   <RailContainer className="p-0">
     <RailNav className="h-full py-20 pe-20 ps-10" href="/contact"

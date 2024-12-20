@@ -1,10 +1,8 @@
 import type { Project } from "@leon/cms/types";
 
-import ContentContainer from "~/components/common/ContentContainer";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import useScrollSectionIndex from "~/hooks/useScrollSectionIndex";
-import MobileHeader from "../common/MobileHeader";
 import NavList from "./NavList";
 import ProjectList from "./ProjectList";
 
@@ -18,23 +16,20 @@ const Projects = ({ projects }: ProjectsProps) => {
 
   return (
     <>
-      <ContentContainer className="h-screen max-h-screen min-h-screen lg:border-x">
-        <MobileHeader title="WORK" />
-        <RailContainer disableGradient>
-          <RailNav href="/work" isActive>
-            WORK
-          </RailNav>
-          <NavList
-            projects={projects}
-            selectedSectionIndex={selectedSectionIndex}
-            scrollToSection={scrollToSection}
-          />
-        </RailContainer>
-        <ProjectList
+      <RailContainer disableGradient>
+        <RailNav href="/work" isActive>
+          WORK
+        </RailNav>
+        <NavList
           projects={projects}
-          scrollContainerRef={scrollContainerRef}
+          selectedSectionIndex={selectedSectionIndex}
+          scrollToSection={scrollToSection}
         />
-      </ContentContainer>
+      </RailContainer>
+      <ProjectList
+        projects={projects}
+        scrollContainerRef={scrollContainerRef}
+      />
     </>
   );
 };

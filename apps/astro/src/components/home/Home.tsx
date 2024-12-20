@@ -1,8 +1,6 @@
 import type { Bio, Experience } from "@leon/cms/types";
 
 import useScrollSectionIndex from "~/hooks/useScrollSectionIndex";
-import ContentContainer from "../common/ContentContainer";
-import MobileHeader from "../common/MobileHeader";
 import MobileNavList from "../common/MobileNavList";
 import BioSection from "./BioSection";
 import DesktopNavList from "./DesktopNavList";
@@ -21,28 +19,25 @@ const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {
 
   return (
     <>
-      <ContentContainer className="h-screen max-h-screen min-h-screen flex-col lg:border-r">
-        <MobileHeader title="LEON ESQUILLON" />
-        <DesktopNavList
-          selectedSectionIndex={selectedSectionIndex}
-          scrollToSection={scrollToSection}
-        />
-        <div ref={scrollContainerRef} className="flex-1 overflow-y-auto">
-          <div className="h-full">
-            <IntroductionSection />
-          </div>
-          <div className="h-full">
-            <ExperienceSection experience={experience} />
-          </div>
-          <div className="h-full">
-            <BioSection bio={bio} bioImageUrl={bioImageUrl} />
-          </div>
+      <DesktopNavList
+        selectedSectionIndex={selectedSectionIndex}
+        scrollToSection={scrollToSection}
+      />
+      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto">
+        <div className="h-full">
+          <IntroductionSection />
         </div>
-        <MobileNavList
-          selectedSectionIndex={selectedSectionIndex}
-          scrollToSection={scrollToSection}
-        />
-      </ContentContainer>
+        <div className="h-full">
+          <ExperienceSection experience={experience} />
+        </div>
+        <div className="h-full">
+          <BioSection bio={bio} bioImageUrl={bioImageUrl} />
+        </div>
+      </div>
+      <MobileNavList
+        selectedSectionIndex={selectedSectionIndex}
+        scrollToSection={scrollToSection}
+      />
     </>
   );
 };

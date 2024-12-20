@@ -3,6 +3,8 @@ import { sanityClient } from "sanity:client";
 
 import type { Bio, Experience } from "@leon/cms/types";
 
+import ContentContainer from "~/components/common/ContentContainer";
+import MobileHeader from "~/components/common/MobileHeader";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import Home from "~/components/home/Home";
@@ -29,12 +31,17 @@ const bioImageUrl = bio.bioImage
 ---
 
 <Layout>
-  <Home
-    client:load
-    experience={experience}
-    bio={bio}
-    bioImageUrl={bioImageUrl}
-  />
+  <ContentContainer
+    className="h-screen max-h-screen min-h-screen flex-col lg:border-r"
+  >
+    <MobileHeader title="LEON ESQUILLON" client:load />
+    <Home
+      client:load
+      experience={experience}
+      bio={bio}
+      bioImageUrl={bioImageUrl}
+    />
+  </ContentContainer>
 
   <RailContainer className="border-l p-0">
     <RailNav className="h-full px-10 py-20" href="/work">WORK</RailNav>
