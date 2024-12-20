@@ -21,7 +21,7 @@ const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {
 
   return (
     <>
-      <ContentContainer className="h-screen max-h-screen min-h-screen flex-col border-r">
+      <ContentContainer className="h-screen max-h-screen min-h-screen flex-col lg:border-r">
         <MobileHeader title="LEON ESQUILLON" />
         <DesktopNavList
           selectedSectionIndex={selectedSectionIndex}

@@ -18,7 +18,7 @@ const Projects = ({ projects }: ProjectsProps) => {
 
   return (
     <>
-      <ContentContainer className="h-screen max-h-screen min-h-screen border-x">
+      <ContentContainer className="h-screen max-h-screen min-h-screen lg:border-x">
         <MobileHeader title="WORK" />
         <RailContainer disableGradient>
           <RailNav href="/work" isActive>
