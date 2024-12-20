@@ -8,7 +8,7 @@ interface RailNavProps extends HTMLAttributes<HTMLAnchorElement> {
   className?: string;
 }
 
-const RailNavProps = ({
+const RailNav = ({
   children,
   href,
   isActive,
@@ -30,4 +30,4 @@ const RailNavProps = ({
   );
 };
 
-export default RailNavProps;
+export default RailNav;
