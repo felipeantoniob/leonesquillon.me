@@ -13,6 +13,7 @@ import SEO from "~/components/SEO.astro";
 import ProjectDetails from "~/components/work/ProjectDetails.astro";
 import ProjectGradientBackground from "~/components/work/ProjectGradientBackground";
 import ProjectLogo from "~/components/work/ProjectLogo";
+import SampleImages from "~/components/work/SampleImages.astro";
 import Layout from "~/layouts/Layout.astro";
 import { urlFor } from "~/lib/sanity";
 
@@ -35,7 +36,7 @@ const lightLogoImageUrl = project.logos
   ? urlFor(project.logos.lightMode ?? "")?.url()
   : null;
 
-const sampleImages = project.sampleImages
+const sampleImageUrls = project.sampleImages
   ? project.sampleImages
       .map((sampleImage) => {
         const sampleImageUrl = sampleImage.image
@@ -89,62 +90,54 @@ const sampleImages = project.sampleImages
       </svg>
     </RailNav>
   </RailContainer>
-  <MobileHeader title="WORK" client:load />
   <ContentContainer
-    className="h-screen gap-10 overflow-y-auto px-4 pb-16 lg:flex-col lg:border-x lg:px-10"
+    className="h-screen max-h-screen min-h-screen w-screen overflow-hidden lg:flex-col lg:border-x lg:px-10"
   >
-    <div class="flex flex-col gap-10 pt-2 lg:pt-20">
-      <a
-        href="/work"
-        class="flex w-fit flex-row items-center gap-2 rounded-md border border-border px-2 py-1"
-      >
-        <Image src={arrowLeftSvg} alt="arrow-left" width="16" height="16" />
-        <p class="font-sans text-sm font-semibold text-muted-foreground">
-          Back
-        </p>
-      </a>
-      <div class="flex flex-col gap-8 lg:flex-row">
-        <div
-          class="flex w-full flex-1 flex-col items-start justify-center gap-5 lg:items-center"
+    <MobileHeader title="WORK" client:load />
+    <div class="flex flex-col gap-8 overflow-y-auto px-4 pb-4">
+      <div class="flex flex-col gap-10 pt-2 lg:pt-20">
+        <a
+          href="/work"
+          class="flex w-fit flex-row items-center gap-2 rounded-md border border-border px-2 py-1"
         >
-          <div class="max-w-[50%] sm:max-w-[25%] lg:max-w-[50%]">
-            <ProjectLogo client:only>
-              {
-                darkLogoImageUrl && (
-                  <Image
-                    slot="darkModeLogo"
-                    src={darkLogoImageUrl}
-                    alt="logo"
-                    inferSize
-                  />
-                )
-              }
-              {
-                lightLogoImageUrl && (
-                  <Image
-                    slot="lightModeLogo"
-                    src={lightLogoImageUrl}
-                    alt="logo"
-                    inferSize
-                  />
-                )
-              }
-            </ProjectLogo>
+          <Image src={arrowLeftSvg} alt="arrow-left" width="16" height="16" />
+          <p class="font-sans text-sm font-semibold text-muted-foreground">
+            Back
+          </p>
+        </a>
+        <div class="flex flex-col gap-8 lg:flex-row">
+          <div
+            class="flex w-full flex-1 flex-col items-start justify-center gap-5 lg:items-center"
+          >
+            <div class="max-w-[50%] sm:max-w-[25%] lg:max-w-[50%]">
+              <ProjectLogo client:only>
+                {
+                  darkLogoImageUrl && (
+                    <Image
+                      slot="darkModeLogo"
+                      src={darkLogoImageUrl}
+                      alt="logo"
+                      inferSize
+                    />
+                  )
+                }
+                {
+                  lightLogoImageUrl && (
+                    <Image
+                      slot="lightModeLogo"
+                      src={lightLogoImageUrl}
+                      alt="logo"
+                      inferSize
+                    />
+                  )
+                }
+              </ProjectLogo>
+            </div>
           </div>
+          <ProjectDetails project={project} />
         </div>
-        <ProjectDetails project={project} />
       </div>
-    </div>
-    <div class="flex flex-col gap-4 lg:gap-10">
-      {
-        sampleImages.map((sampleImage) => (
-          <img
-            src={sampleImage}
-            alt="sample image"
-            class="w-full object-contain"
-          />
-        ))
-      }
+      <SampleImages sampleImageUrls={sampleImageUrls} />
     </div>
   </ContentContainer>
   <RailContainer className="pe-20">
