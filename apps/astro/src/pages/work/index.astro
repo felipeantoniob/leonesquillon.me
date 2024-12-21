@@ -28,7 +28,7 @@ const projects = await sanityClient.fetch<Project[]>(PROJECTS_QUERY);
   />
   <HomeRailNav />
 
-  <ContentContainer className="h-screen max-h-screen min-h-screen lg:border-x">
+  <ContentContainer className="h-full lg:border-x">
     <MobileHeader title="WORK" client:load />
     <Projects projects={projects} client:load />
   </ContentContainer>
