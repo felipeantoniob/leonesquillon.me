@@ -5,7 +5,7 @@ import reactConfig from "@leon/eslint-config/react";
 /** @type {import('typescript-eslint').Config} */
 export default [
   {
-    ignores: [".next/**", ".astro/types.d.ts", ".astro/content.d.ts"],
+    ignores: [".next/**", ".astro/types.d.ts", ".astro/content.d.ts", "public"],
   },
   ...baseConfig,
   ...reactConfig,
