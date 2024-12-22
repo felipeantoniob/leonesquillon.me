@@ -42,7 +42,7 @@ const MobileHeader = ({ title }: MobileHeaderProps) => {
           />
         </DialogTrigger>
 
-        <DialogContent className="min-w-screen max-w-screen max-h-screen min-h-screen rounded-none border-0 bg-background sm:rounded-none">
+        <DialogContent className="min-w-screen max-w-screen h-full rounded-none border-0 bg-background sm:rounded-none">
           <DialogHeader>
             <DialogTitle className="sr-only">Navigation Modal</DialogTitle>
             <DialogDescription className="sr-only">
