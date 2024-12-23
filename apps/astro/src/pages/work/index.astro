@@ -12,6 +12,8 @@ import SEO from "~/components/SEO.astro";
 import Projects from "~/components/work/Projects";
 import Layout from "~/layouts/Layout.astro";
 
+export const prerender = false;
+
 const PROJECTS_QUERY = `*[
   _type == "project"
   && defined(slug.current)

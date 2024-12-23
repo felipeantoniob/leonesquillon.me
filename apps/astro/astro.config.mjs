@@ -3,6 +3,7 @@ import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import vercel from "@astrojs/vercel";
 import sanity from "@sanity/astro";
 import { defineConfig, envField } from "astro/config";
 
@@ -10,6 +11,7 @@ import { defineConfig, envField } from "astro/config";
 export default defineConfig({
   site: "https://leon-esquillon.vercel.app",
   output: "static",
+  adapter: vercel(),
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "load",
