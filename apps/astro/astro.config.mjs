@@ -9,7 +9,7 @@ import { defineConfig, envField } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://leon-esquillon.vercel.app",
+  site: "https://leonesquillon.me",
   output: "static",
   adapter: vercel(),
   prefetch: {
