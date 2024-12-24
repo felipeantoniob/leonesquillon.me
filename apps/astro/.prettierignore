@@ -35,3 +35,6 @@ pnpm-debug.log*
 pnpm-lock.yaml
 package-lock.json
 yarn.lock
+
+# Partytown
+public/~partytown
