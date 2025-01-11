@@ -29,18 +29,18 @@ export default defineConfig({
   ],
   env: {
     schema: {
-      PUBLIC_VERCEL_ENV: envField.string({
+      VERCEL_ENV: envField.string({
         context: "client",
         access: "public",
         optional: true,
         default: "development",
       }),
-      PUBLIC_VERCEL_PROJECT_PRODUCTION_URL: envField.string({
+      VERCEL_PROJECT_PRODUCTION_URL: envField.string({
         context: "client",
         access: "public",
         optional: true,
       }),
-      PUBLIC_VERCEL_URL: envField.string({
+      VERCEL_URL: envField.string({
         context: "client",
         access: "public",
         optional: true,
