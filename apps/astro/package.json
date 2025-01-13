@@ -22,7 +22,6 @@
     "@fontsource/lora": "^5.1.0",
     "@fontsource/work-sans": "^5.1.0",
     "@leon/cms": "workspace:*",
-    "@leon/ui": "workspace:*",
     "@nanostores/react": "^0.8.4",
     "@portabletext/react": "^3.2.0",
     "@radix-ui/react-dialog": "^1.1.4",
