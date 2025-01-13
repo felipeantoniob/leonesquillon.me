@@ -1,81 +1,99 @@
-# Turborepo starter
+# leonesquillon.me
 
-This is an official starter Turborepo.
+Personal portfolio website of UI/UX design Leon Esquillon.
 
-## Using this example
+## Tech Stack
 
-Run the following command:
+- **Astro** – A modern static site generator for fast, optimized websites.
+- **React** – A JavaScript library for building user interfaces.
+- **Sanity CMS** – A headless CMS to manage and deliver content.
+- **Turborepo** – A high-performance build system for managing monorepos.
+- **Tailwind CSS** – A utility-first CSS framework for rapidly building custom designs.
+- **Prettier** – An opinionated code formatter to ensure consistent code style.
+- **ESLint** – A static code analysis tool to find and fix problems in JavaScript/TypeScript code.
+- **TypeScript** – A strongly typed programming language that builds on JavaScript, providing optional static typing.
 
-```sh
-npx create-turbo@latest
+## Installation
+
+To get started with the project locally, follow these steps:
+
+1. **Clone the repository**:
+
+```zsh
+git clone https://github.com/felipeantoniob/leonesquillon.me.git
+
+cd leonesquillon.me
 ```
 
-## What's inside?
+2. **Install dependencies**:
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```zsh
+pnpm install
 ```
 
-### Develop
+## Development
 
-To develop all apps and packages, run the following command:
+To start the development server and view the project locally:
 
-```
-cd my-turborepo
+```zsh
 pnpm dev
 ```
 
-### Remote Caching
+This will start a local development server at `http://localhost:4321` where you can preview the site.
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+## Build & Deployment
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+To build the project for production:
 
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
+```zsh
+pnpm build
 ```
 
-## Useful Links
+This will create a production-ready version of the website in the `dist/` folder.
 
-Learn more about the power of Turborepo:
+To preview the production build locally:
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+```zsh
+pnpm preview
+```
+
+## Code Style
+
+This project uses the following tools for code formatting and linting:
+
+- **Prettier**: Ensures consistent code formatting.
+- **ESLint**: Helps with maintaining code quality and identifying potential issues.
+
+To check code formatting:
+
+```zsh
+pnpm format
+```
+
+To fix code formatting issues:
+
+```zsh
+pnpm format:fix
+```
+
+To lint the code:
+
+```zsh
+pnpm lint
+```
+
+To automatically fix linting issues:
+
+```zsh
+pnpm lint:fix
+```
+
+## License
+
+This project is open-source and available under the [MIT License](/LICENSE).
+
+## Author
+
+Felipe Buencamino
+
+---
