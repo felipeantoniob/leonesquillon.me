@@ -8,6 +8,9 @@ export default {
   content: [...baseConfig.content],
   theme: {
     extend: {
+      maxWidth: {
+        "screen-3xl": "1920px",
+      },
       fontFamily: {
         sans: ["Work Sans", ...fontFamily.sans],
         serif: ["Lora", ...fontFamily.serif],
