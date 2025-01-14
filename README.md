@@ -6,7 +6,6 @@ Personal portfolio website of UI/UX design Leon Esquillon.
 
 - **Astro** – A modern static site generator for fast, optimized websites.
 - **React** – A JavaScript library for building user interfaces.
-- **Turborepo** – A high-performance build system for managing monorepos.
 - **Tailwind CSS** – A utility-first CSS framework for rapidly building custom designs.
 - **Prettier** – An opinionated code formatter to ensure consistent code style.
 - **ESLint** – A static code analysis tool to find and fix problems in JavaScript/TypeScript code.
