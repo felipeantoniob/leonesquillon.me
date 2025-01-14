@@ -1,13 +1,15 @@
-// @ts-nocheck
-import baseConfig, { restrictEnvAccess } from "@leon/eslint-config/base";
-import reactConfig from "@leon/eslint-config/react";
+import eslintPluginAstro from "eslint-plugin-astro";
 
-/** @type {import('typescript-eslint').Config} */
 export default [
+  // add more generic rule sets here, such as:
+  // js.configs.recommended,
+  ...eslintPluginAstro.configs.recommended,
+  ...eslintPluginAstro.configs["jsx-a11y-recommended"],
   {
-    ignores: [".next/**", ".astro/types.d.ts", ".astro/content.d.ts", "public"],
+    ignores: [".vercel/"],
+    rules: {
+      // override/add rules settings here, such as:
+      // "astro/no-set-html-directive": "error"
+    },
   },
-  ...baseConfig,
-  ...reactConfig,
-  ...restrictEnvAccess,
 ];

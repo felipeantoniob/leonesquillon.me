@@ -33,7 +33,10 @@ const project = PROJECTS.find((project) => project.slug === slug)!;
     description="Explore this UI/UX design project, showcasing the process, challenges, and user-centered solutions."
     slot="seo"
   />
-  <ProjectGradientBackground gradients={project.gradients} client:only />
+  <ProjectGradientBackground
+    gradients={project.gradients}
+    client:only="react"
+  />
   <RailContainer className="pe-20 ps-20">
     <RailNav href="/">
       {/* TODO: Refactor inline svg  */}
