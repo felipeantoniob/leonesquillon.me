@@ -11,7 +11,7 @@ const ProjectList = ({ projects, scrollContainerRef }: ProjectListProps) => {
   return (
     <div
       ref={scrollContainerRef}
-      className="flex h-full max-h-screen w-full flex-1 flex-col gap-20 overflow-y-auto px-4 py-8 lg:px-10 lg:py-20"
+      className="mx-auto flex h-full max-h-screen w-full flex-1 flex-col gap-20 overflow-y-auto px-4 py-8 lg:px-10 lg:py-20"
     >
       {projects.map((project, i) => {
         return (
@@ -30,7 +30,7 @@ const ProjectList = ({ projects, scrollContainerRef }: ProjectListProps) => {
             <a
               href={`/work/${project.slug}`}
               aria-label={`Link to ${project.title} project`}
-              className="z-40 aspect-[429/241] w-full flex-1 overflow-clip bg-gray-700 transition-all hover:rounded-xl"
+              className="z-40 w-full flex-1 overflow-clip transition-all hover:rounded-xl"
             >
               <img
                 src={project.coverImage.src}

@@ -6,7 +6,7 @@ const BioSection = () => {
       <img
         src={bioImage.src}
         alt="Picture of Leon Esquillon"
-        className="mx-auto aspect-[560/315] w-full max-w-screen-sm bg-gray-700 object-cover lg:max-w-screen-xl"
+        className="mx-auto w-full max-w-screen-sm object-cover lg:max-w-screen-xl"
       />
       <div className="flex flex-col gap-2 font-sans text-sm font-medium text-foreground">
         <p>
