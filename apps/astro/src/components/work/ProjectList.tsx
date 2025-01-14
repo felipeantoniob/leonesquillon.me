@@ -29,10 +29,12 @@ const ProjectList = ({ projects, scrollContainerRef }: ProjectListProps) => {
             </div>
             <a
               href={`/work/${project.slug}`}
+              aria-label={`Link to ${project.title} project`}
               className="z-40 aspect-[429/241] w-full flex-1 overflow-clip bg-gray-700 transition-all hover:rounded-xl"
             >
               <img
                 src={project.coverImage.src}
+                alt={`${project.title} cover image`}
                 className="w-full overflow-hidden object-contain transition-all hover:scale-110 hover:rounded-xl"
               />
             </a>
