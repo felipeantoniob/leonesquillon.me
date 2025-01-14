@@ -1,5 +1,4 @@
-import type { Experience } from "@leon/cms/types";
-
+import { EXPERIENCE } from "~/constants/experience";
 import { cn } from "~/lib/utils";
 
 const StepCircle = ({ isSelected }: { isSelected: boolean }) => (
@@ -19,21 +18,17 @@ const StepCircle = ({ isSelected }: { isSelected: boolean }) => (
   </div>
 );
 
-interface ExperienceSectionProps {
-  experience: Experience[];
-}
-
-const ExperienceSection = ({ experience }: ExperienceSectionProps) => {
+const ExperienceSection = () => {
   return (
     <div className="mx-auto flex h-full w-full max-w-fit flex-col justify-center">
-      {experience.map(({ _id, position, company, period }, index) => (
-        <div key={_id} className="flex flex-row gap-4">
+      {EXPERIENCE.map(({ position, company, period }, index) => (
+        <div key={company + period + index} className="flex flex-row gap-4">
           <div className="flex w-10 flex-col items-center">
             <StepCircle isSelected={index === 0} />
             <div
               className={cn(
                 "my-1 flex h-full w-[2px] flex-1 rounded-full bg-[#454545]",
-                index === experience.length - 1 && "hidden",
+                index === EXPERIENCE.length - 1 && "hidden",
               )}
             />
           </div>

@@ -1,5 +1,3 @@
-import type { Bio, Experience } from "@leon/cms/types";
-
 import useScrollSectionIndex from "~/hooks/useScrollSectionIndex";
 import MobileNavList from "../common/MobileNavList";
 import BioSection from "./BioSection";
@@ -7,13 +5,7 @@ import DesktopNavList from "./DesktopNavList";
 import ExperienceSection from "./ExperienceSection";
 import IntroductionSection from "./IntroductionSection";
 
-interface HomeProps {
-  bio: Bio;
-  experience: Experience[];
-  bioImageUrl: string | null;
-}
-
-const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {
+const Home = () => {
   const { scrollContainerRef, scrollToSection, selectedSectionIndex } =
     useScrollSectionIndex([1, 2, 3]);
 
@@ -28,10 +20,10 @@ const Home = ({ bio, experience, bioImageUrl }: HomeProps) => {
           <IntroductionSection />
         </div>
         <div className="h-full">
-          <ExperienceSection experience={experience} />
+          <ExperienceSection />
         </div>
         <div className="h-full">
-          <BioSection bio={bio} bioImageUrl={bioImageUrl} />
+          <BioSection />
         </div>
       </div>
       <MobileNavList
