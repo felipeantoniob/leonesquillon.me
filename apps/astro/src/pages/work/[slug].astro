@@ -17,8 +17,6 @@ import SampleImages from "~/components/work/SampleImages.astro";
 import Layout from "~/layouts/Layout.astro";
 import { urlFor } from "~/lib/sanity";
 
-export const prerender = false;
-
 const PROJECT_QUERY = `*[_type == "project" && slug.current == $slug][0]`;
 
 const project = await sanityClient.fetch<Project>(PROJECT_QUERY, Astro.params);
