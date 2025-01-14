@@ -1,5 +1,4 @@
-import type { Project } from "@leon/cms/types";
-
+import type { Project } from "~/constants/projects";
 import { cn } from "~/lib/utils";
 
 interface NavListProps {

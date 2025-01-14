@@ -1,8 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import { sanityClient } from "sanity:client";
-
-import type { Project } from "@leon/cms/types";
 
 import arrowLeftSvg from "~/assets/arrow-left.svg";
 import ContentContainer from "~/components/common/ContentContainer";
@@ -14,39 +11,20 @@ import ProjectDetails from "~/components/work/ProjectDetails.astro";
 import ProjectGradientBackground from "~/components/work/ProjectGradientBackground";
 import ProjectLogo from "~/components/work/ProjectLogo";
 import SampleImages from "~/components/work/SampleImages.astro";
+import { PROJECTS } from "~/constants/projects";
 import Layout from "~/layouts/Layout.astro";
-import { urlFor } from "~/lib/sanity";
 
-const PROJECT_QUERY = `*[_type == "project" && slug.current == $slug][0]`;
-
-const project = await sanityClient.fetch<Project>(PROJECT_QUERY, Astro.params);
-
-export async function getStaticPaths(): Promise<{ params: { slug: string } }> {
-  const SLUGS_QUERY = `*[_type == "project" && defined(slug.current)]{
-    "params": {"slug": slug.current}
-  }`;
-  return await sanityClient.fetch(SLUGS_QUERY, Astro.params);
+export function getStaticPaths(): { params: { slug: string } }[] {
+  return PROJECTS.map((project) => ({
+    params: {
+      slug: project.slug,
+    },
+  }));
 }
 
-const darkLogoImageUrl = project.logos
-  ? urlFor(project.logos.darkMode ?? "")?.url()
-  : null;
+const { slug } = Astro.params;
 
-const lightLogoImageUrl = project.logos
-  ? urlFor(project.logos.lightMode ?? "")?.url()
-  : null;
-
-const sampleImageUrls = project.sampleImages
-  ? project.sampleImages
-      .map((sampleImage) => {
-        const sampleImageUrl = sampleImage.image
-          ? urlFor(sampleImage.image)?.url()
-          : null;
-
-        return sampleImageUrl;
-      })
-      .filter(Boolean)
-  : [];
+const project = PROJECTS.find((project) => project.slug === slug)!;
 ---
 
 <Layout>
@@ -110,34 +88,29 @@ const sampleImageUrls = project.sampleImages
             class="flex w-full flex-1 flex-col items-start justify-center gap-5 lg:items-center"
           >
             <div class="max-w-[50%] sm:max-w-[25%] lg:max-w-[50%]">
-              <ProjectLogo client:only>
-                {
-                  darkLogoImageUrl && (
-                    <Image
-                      slot="darkModeLogo"
-                      src={darkLogoImageUrl}
-                      alt="logo"
-                      inferSize
-                    />
-                  )
-                }
-                {
-                  lightLogoImageUrl && (
-                    <Image
-                      slot="lightModeLogo"
-                      src={lightLogoImageUrl}
-                      alt="logo"
-                      inferSize
-                    />
-                  )
-                }
+              <!-- @ts-expect-error //TODO fix this type error -->
+              <ProjectLogo>
+                <!-- @ts-expect-error //TODO fix this type error -->
+                <Image
+                  slot="darkModeLogo"
+                  src={project.logoImageDark}
+                  alt="logo"
+                  inferSize
+                />
+                <!-- @ts-expect-error //TODO fix this -->
+                <Image
+                  slot="lightModeLogo"
+                  src={project.logoImageLight}
+                  alt="logo"
+                  inferSize
+                />
               </ProjectLogo>
             </div>
           </div>
           <ProjectDetails project={project} />
         </div>
       </div>
-      <SampleImages sampleImageUrls={sampleImageUrls} />
+      <SampleImages sampleImages={project.sampleImages} />
     </div>
   </ContentContainer>
   <RailContainer className="pe-20">

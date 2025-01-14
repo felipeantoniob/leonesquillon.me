@@ -1,44 +1,16 @@
 ---
-import { sanityClient } from "sanity:client";
-
-import type { Bio, Experience } from "@leon/cms/types";
-
 import ContentContainer from "~/components/common/ContentContainer";
 import MobileHeader from "~/components/common/MobileHeader";
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
 import Home from "~/components/home/Home";
 import Layout from "~/layouts/Layout.astro";
-import { urlFor } from "~/lib/sanity";
-
-const EXPERIENCE_QUERY = `*[
-  _type == "experience"
-  && defined(_id)
-]|order(sortOrder asc)`;
-
-const experience = await sanityClient.fetch<Experience[]>(EXPERIENCE_QUERY);
-
-const BIO_QUERY = `*[
-  _type == "bio"
- 
-][0]`;
-
-const bio = await sanityClient.fetch<Bio>(BIO_QUERY);
-
-const bioImageUrl = bio.bioImage
-  ? urlFor(bio.bioImage)?.width(560).height(315).url()
-  : null;
 ---
 
 <Layout>
   <ContentContainer className="h-full flex-col lg:border-r">
     <MobileHeader title="LEON ESQUILLON" client:load />
-    <Home
-      client:load
-      experience={experience}
-      bio={bio}
-      bioImageUrl={bioImageUrl}
-    />
+    <Home client:load />
   </ContentContainer>
 
   <RailContainer className="border-l p-0">

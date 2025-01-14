@@ -1,8 +1,6 @@
 import type { MutableRefObject } from "react";
 
-import type { Project } from "@leon/cms/types";
-
-import { urlFor } from "~/lib/sanity";
+import type { Project } from "~/constants/projects";
 
 interface ProjectListProps {
   projects: Project[];
@@ -19,7 +17,7 @@ const ProjectList = ({ projects, scrollContainerRef }: ProjectListProps) => {
         return (
           <div
             key={i}
-            id={project.slug.current}
+            id={project.slug}
             className="flex flex-col gap-5 text-foreground xl:flex-row"
           >
             <div className="flex flex-1 flex-col gap-2">
@@ -30,11 +28,11 @@ const ProjectList = ({ projects, scrollContainerRef }: ProjectListProps) => {
               <p className="text-medium font-sans text-sm">{project.summary}</p>
             </div>
             <a
-              href={`/work/${project.slug.current}`}
+              href={`/work/${project.slug}`}
               className="z-40 aspect-[429/241] w-full flex-1 overflow-clip bg-gray-700 transition-all hover:rounded-xl"
             >
               <img
-                src={urlFor(project.coverImage ?? "").url()}
+                src={project.coverImage.src}
                 className="w-full overflow-hidden object-contain transition-all hover:scale-110 hover:rounded-xl"
               />
             </a>

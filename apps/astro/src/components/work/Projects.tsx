@@ -1,16 +1,12 @@
-import type { Project } from "@leon/cms/types";
-
 import RailContainer from "~/components/common/RailContainer";
 import RailNav from "~/components/common/RailNav";
+import { PROJECTS } from "~/constants/projects";
 import useScrollSectionIndex from "~/hooks/useScrollSectionIndex";
 import NavList from "./NavList";
 import ProjectList from "./ProjectList";
 
-interface ProjectsProps {
-  projects: Project[];
-}
-
-const Projects = ({ projects }: ProjectsProps) => {
+const Projects = () => {
+  const projects = PROJECTS.sort((a, b) => a.sortOrder - b.sortOrder);
   const { scrollContainerRef, selectedSectionIndex, scrollToSection } =
     useScrollSectionIndex(projects);
 
