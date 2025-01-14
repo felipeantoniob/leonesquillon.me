@@ -1,0 +1,49 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import BaseHead from "~/components/BaseHead.astro";
+import CursorHighlight from "~/components/common/CursorHighlight";
+import Frame from "~/components/common/Frame.astro";
+import SEO from "~/components/SEO.astro";
+import ThemeIcon from "~/components/ThemeIcon.astro";
+
+const { style, ...props }: HTMLAttributes<"body"> = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead />
+    <slot name="seo">
+      {/* @ts-expect-error: slot prop isn't necessary in this component */}
+      <SEO />
+    </slot>
+  </head>
+
+  <body
+    id="body"
+    class="dark bg-background lg:overflow-hidden"
+    style={style}
+    {...props}
+  >
+    <div transition:persist class="absolute right-0 top-0 z-50 m-4 hidden">
+      <ThemeIcon transition:persist />
+    </div>
+    <Frame />
+    <CursorHighlight client:load />
+    <main
+      class="mx-auto flex h-full max-w-screen-3xl flex-col transition-all lg:flex-row"
+    >
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+
+import emailSvg from "~/assets/svgs/email.svg";
+import instagramSvg from "~/assets/svgs/instagram.svg";
+import linkedinSvg from "~/assets/svgs/linkedin.svg";
+---
+
+<div class="flex h-full w-full flex-1 flex-col justify-center p-10 lg:h-screen">
+  <div class="flex flex-col gap-8 lg:gap-20">
+    <p class="text-center font-serif text-5xl text-primary lg:text-7xl">
+      Open to work 2025
+    </p>
+    <div class="flex flex-col items-center gap-4 text-center">
+      <p class="font-sans text-base font-medium text-foreground">
+        Looking to work together or get in touch?
+      </p>
+      <div class="flex items-center gap-2">
+        <a
+          id="email-link"
+          href="mailto:lesquillon@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-umami-event="Email link clicked"
+          class="font-sans text-xl text-muted-foreground"
+        >
+          lesquillon@gmail.com
+        </a>
+        <Image
+          src={emailSvg}
+          alt="email"
+          width="24"
+          height="25"
+          loading="eager"
+        />
+      </div>
+      <div class="flex flex-row gap-4">
+        <a
+          id="linkedin-link"
+          href="https://ph.linkedin.com/in/leonesquillon"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-umami-event="LinkedIn link clicked"
+        >
+          <Image
+            src={linkedinSvg}
+            alt="linkedin"
+            width="32"
+            height="32"
+            class="max-w-fit"
+            loading="eager"
+          />
+        </a>
+        <a
+          id="instagram-link"
+          href="https://www.instagram.com/leon.e_/"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-umami-event="Instagram link clicked"
+        >
+          <Image
+            src={instagramSvg}
+            alt="instagram"
+            width="32"
+            height="32"
+            class="max-w-fit"
+            loading="eager"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

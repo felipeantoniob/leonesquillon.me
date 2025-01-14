@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+
+import squidward404Mobile from "~/assets/svgs/404-squidward-mobile.svg";
+import squidward404 from "~/assets/svgs/404-squidward.svg";
+import HomeRailNav from "~/components/common/HomeRailNav.astro";
+import Layout from "~/layouts/Layout.astro";
+---
+
+<Layout>
+  <HomeRailNav />
+  <div
+    class="relative hidden h-full w-full flex-row overflow-hidden border-border lg:flex lg:border-l"
+  >
+    <div class="mx-auto mb-8 mt-auto pe-16 ps-8 lg:my-auto">
+      <h1 class="font-sans text-xl font-semibold text-foreground">
+        sorry, we couldn't find that page
+      </h1>
+      <a
+        href="/"
+        class="text-sans mt-10 flex flex-row items-center justify-center gap-2 border border-border px-6 py-4 text-lg font-semibold"
+        >GO HOME
+        <svg
+          class="m-[6px]"
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 13L13 1M13 1H5M13 1V9"
+            stroke="#F6F6F6"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+    <div class="hidden lg:block">
+      <Image src={squidward404} alt="404" class="h-full" />
+    </div>
+  </div>
+  <div class="relative flex h-full w-full lg:hidden">
+    <div class="mb-8 mt-auto flex w-full flex-col items-center px-4">
+      <a
+        href="/"
+        class="text-sans mx-4 mt-10 flex h-fit w-full flex-row items-center justify-center gap-2 border border-border bg-background px-6 py-4 text-lg font-semibold"
+        >GO HOME
+        <svg
+          class="m-[6px]"
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 13L13 1M13 1H5M13 1V9"
+            stroke="#F6F6F6"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+    <Image
+      src={squidward404Mobile}
+      alt="404"
+      class="absolute -z-10 h-full w-full"
+    />
+  </div>
+</Layout>
