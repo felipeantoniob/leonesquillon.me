@@ -1,16 +1,18 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
-  sampleImageUrls: (string | null)[];
+  sampleImages: ImageMetadata[];
 }
 
-const { sampleImageUrls } = Astro.props;
+const { sampleImages } = Astro.props;
 ---
 
 <div class="flex flex-col gap-8 lg:gap-10">
   {
-    sampleImageUrls.map((sampleImageUrl) => (
-      <img
-        src={sampleImageUrl}
+    sampleImages.map((sampleImage) => (
+      <Image
+        src={sampleImage}
         alt="sample image"
         class="w-full object-contain"
       />

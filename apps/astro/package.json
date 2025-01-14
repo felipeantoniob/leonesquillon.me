@@ -20,7 +20,6 @@
     "@astrojs/tailwind": "^5.1.4",
     "@fontsource/lora": "^5.1.1",
     "@fontsource/work-sans": "^5.1.1",
-    "@leon/cms": "workspace:*",
     "@nanostores/react": "^0.8.4",
     "@portabletext/react": "^3.2.0",
     "@radix-ui/react-dialog": "^1.1.4",

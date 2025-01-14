@@ -4,7 +4,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import sanity from "@sanity/astro";
-import { defineConfig, envField } from "astro/config";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
