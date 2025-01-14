@@ -19,16 +19,18 @@ const StepCircle = ({ isSelected }: { isSelected: boolean }) => (
 );
 
 const ExperienceSection = () => {
+  const experience = EXPERIENCE.sort((a, b) => a.sortOrder - b.sortOrder);
+
   return (
     <div className="mx-auto flex h-full w-full max-w-fit flex-col justify-center">
-      {EXPERIENCE.map(({ position, company, period }, index) => (
+      {experience.map(({ position, company, period }, index) => (
         <div key={company + period + index} className="flex flex-row gap-4">
           <div className="flex w-10 flex-col items-center">
             <StepCircle isSelected={index === 0} />
             <div
               className={cn(
                 "my-1 flex h-full w-[2px] flex-1 rounded-full bg-[#454545]",
-                index === EXPERIENCE.length - 1 && "hidden",
+                index === experience.length - 1 && "hidden",
               )}
             />
           </div>

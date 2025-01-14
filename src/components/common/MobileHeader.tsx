@@ -1,6 +1,6 @@
-import hamburgerIconSvg from "~/assets/hamburger-icon.svg";
-import leonLogoWhiteSvg from "~/assets/leon-logo-white.svg";
-import leonLogoSvg from "~/assets/leon-logo.svg";
+import hamburgerIconSvg from "~/assets/svgs/hamburger-icon.svg";
+import leonLogoWhiteSvg from "~/assets/svgs/leon-logo-white.svg";
+import leonLogoSvg from "~/assets/svgs/leon-logo.svg";
 import {
   Dialog,
   DialogContent,
