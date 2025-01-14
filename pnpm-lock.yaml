@@ -12,9 +12,6 @@ catalogs:
     prettier:
       specifier: ^3.3.3
       version: 3.4.2
-    tailwindcss:
-      specifier: ^3.4.17
-      version: 3.4.17
     typescript:
       specifier: ^5.7.3
       version: 5.7.3
@@ -126,6 +123,9 @@ importers:
       tailwind-merge:
         specifier: ^2.6.0
         version: 2.6.0
+      tailwindcss:
+        specifier: ^3.4.17
+        version: 3.4.17(ts-node@10.9.2(@types/node@20.17.10)(typescript@5.7.3))
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@20.17.10)(typescript@5.7.3)))
@@ -136,9 +136,6 @@ importers:
       '@leon/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
-      '@leon/tailwind-config':
-        specifier: workspace:*
-        version: link:../../tooling/tailwind
       '@leon/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
@@ -160,9 +157,6 @@ importers:
       prettier:
         specifier: 'catalog:'
         version: 3.4.2
-      tailwindcss:
-        specifier: 'catalog:'
-        version: 3.4.17(ts-node@10.9.2(@types/node@20.17.10)(typescript@5.7.3))
       typescript:
         specifier: 'catalog:'
         version: 5.7.3
@@ -230,37 +224,6 @@ importers:
       '@leon/tsconfig':
         specifier: workspace:*
         version: link:../typescript
-      typescript:
-        specifier: 'catalog:'
-        version: 5.7.3
-
-  tooling/tailwind:
-    dependencies:
-      postcss:
-        specifier: ^8.4.49
-        version: 8.4.49
-      tailwindcss:
-        specifier: 'catalog:'
-        version: 3.4.17(ts-node@10.9.2(@types/node@20.17.10)(typescript@5.7.3))
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@20.17.10)(typescript@5.7.3)))
-    devDependencies:
-      '@leon/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint
-      '@leon/prettier-config':
-        specifier: workspace:*
-        version: link:../prettier
-      '@leon/tsconfig':
-        specifier: workspace:*
-        version: link:../typescript
-      eslint:
-        specifier: 'catalog:'
-        version: 9.18.0(jiti@2.4.2)
-      prettier:
-        specifier: 'catalog:'
-        version: 3.4.2
       typescript:
         specifier: 'catalog:'
         version: 5.7.3

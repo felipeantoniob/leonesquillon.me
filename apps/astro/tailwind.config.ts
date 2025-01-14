@@ -1,11 +1,9 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
-import baseConfig from "@leon/tailwind-config/web";
-
 export default {
   darkMode: ["class"],
-  content: [...baseConfig.content],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
       maxWidth: {
