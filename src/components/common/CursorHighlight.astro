@@ -1,0 +1,19 @@
+<div
+  id="cursor-highlight"
+  class="pointer-events-none absolute z-40 hidden h-screen w-screen lg:block"
+>
+</div>
+
+<script is:inline data-astro-rerun>
+  document.addEventListener("astro:page-load", () => {
+    const highlightElement = document.getElementById("cursor-highlight");
+
+    const updateMousePosition = (e) => {
+      if (highlightElement) {
+        highlightElement.style.background = `radial-gradient(500px at ${e.clientX}px ${e.clientY}px, rgba(69, 69, 69, 0.2) 0%, transparent 80%)`;
+      }
+    };
+
+    document.addEventListener("mousemove", updateMousePosition);
+  });
+</script>

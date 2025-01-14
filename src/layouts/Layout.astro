@@ -1,8 +1,9 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { ClientRouter } from "astro:transitions";
 
 import BaseHead from "~/components/BaseHead.astro";
-import CursorHighlight from "~/components/common/CursorHighlight";
+import CursorHighlight from "~/components/common/CursorHighlight.astro";
 import Frame from "~/components/common/Frame.astro";
 import SEO from "~/components/SEO.astro";
 import ThemeIcon from "~/components/ThemeIcon.astro";
@@ -14,6 +15,7 @@ const { style, ...props }: HTMLAttributes<"body"> = Astro.props;
 <html lang="en">
   <head>
     <BaseHead />
+    <ClientRouter />
     <slot name="seo">
       {/* @ts-expect-error: slot prop isn't necessary in this component */}
       <SEO />
@@ -30,7 +32,7 @@ const { style, ...props }: HTMLAttributes<"body"> = Astro.props;
       <ThemeIcon transition:persist />
     </div>
     <Frame />
-    <CursorHighlight client:load />
+    <CursorHighlight />
     <main
       class="mx-auto flex h-full max-w-screen-3xl flex-col transition-all lg:flex-row"
     >
