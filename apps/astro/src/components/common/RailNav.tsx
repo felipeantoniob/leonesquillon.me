@@ -19,6 +19,7 @@ const RailNav = ({
     <a
       {...props}
       href={href}
+      aria-label={`Navigate to ${href}`}
       className={cn(
         "whitespace-nowrap font-sans text-xl font-bold text-muted-foreground transition group-hover/nav:text-foreground",
         isActive && "text-foreground",
