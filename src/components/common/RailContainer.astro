@@ -1,0 +1,25 @@
+---
+import { cn } from "~/lib/utils";
+
+interface Props {
+  className?: string;
+  disableGradient?: boolean;
+}
+
+const { className, disableGradient }: Props = Astro.props;
+
+const containerClass = cn(
+  "group/nav relative hidden w-fit flex-col border-border py-20 pe-10 ps-10 lg:flex",
+  className,
+);
+---
+
+<nav class={containerClass}>
+  <div
+    class={`
+      pointer-events-none absolute inset-0 h-full w-full opacity-0 transition group-hover/nav:opacity-100
+      bg-gradient-to-t from-black/10 dark:bg-gradient-to-b dark:from-white/15 ${disableGradient && "invisible"}`}
+  >
+  </div>
+  <slot />
+</nav>

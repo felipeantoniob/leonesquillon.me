@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+
+import leonLogoWhiteSvg from "~/assets/svgs/leon-logo-white.svg";
+import MobileNavModal from "./MobileNavModal";
+
+const { title } = Astro.props;
+---
+
+<header class="flex w-full flex-row justify-between px-4 py-4 lg:hidden">
+  <div class="flex flex-row items-center gap-4">
+    <Image
+      src={leonLogoWhiteSvg}
+      alt="logo"
+      width="24"
+      height="24"
+      class="max-w-fit py-1"
+    />
+    <p class="whitespace-nowrap font-sans text-xl font-bold text-foreground">
+      {title}
+    </p>
+  </div>
+  <MobileNavModal title={title} client:load />
+</header>

@@ -2,15 +2,15 @@
 import { Image } from "astro:assets";
 
 import arrowLeftSvg from "~/assets/svgs/arrow-left.svg";
-import ContentContainer from "~/components/common/ContentContainer";
+import ContentContainer from "~/components/common/ContentContainer.astro";
 import HomeRailNav from "~/components/common/HomeRailNav.astro";
-import MobileHeader from "~/components/common/MobileHeader";
-import RailContainer from "~/components/common/RailContainer";
-import RailNav from "~/components/common/RailNav";
+import MobileHeader from "~/components/common/MobileHeader.astro";
+import RailContainer from "~/components/common/RailContainer.astro";
+import RailNav from "~/components/common/RailNav.astro";
 import SEO from "~/components/SEO.astro";
 import ProjectDetails from "~/components/work/ProjectDetails.astro";
-import ProjectGradientBackground from "~/components/work/ProjectGradientBackground";
-import ProjectLogo from "~/components/work/ProjectLogo";
+import ProjectGradientBackground from "~/components/work/ProjectGradientBackground.astro";
+import ProjectLogo from "~/components/work/ProjectLogo.astro";
 import SampleImages from "~/components/work/SampleImages.astro";
 import { PROJECTS } from "~/constants/projects";
 import Layout from "~/layouts/Layout.astro";
@@ -34,15 +34,12 @@ const project = PROJECTS.find((project) => project.slug === slug)!;
     description="Explore this UI/UX design project, showcasing the process, challenges, and user-centered solutions."
     slot="seo"
   />
-  <ProjectGradientBackground
-    gradients={project.gradients}
-    client:only="react"
-  />
+  <ProjectGradientBackground gradients={project.gradients} />
   <HomeRailNav />
   <ContentContainer
     className="h-screen max-h-screen min-h-screen w-screen overflow-hidden lg:flex-col lg:border-x lg:px-10"
   >
-    <MobileHeader title="WORK" client:load />
+    <MobileHeader title="WORK" />
     <div class="flex flex-col gap-8 overflow-y-auto px-4 pb-4">
       <div class="flex flex-col gap-10 pt-2 lg:pt-20">
         <a
@@ -59,23 +56,10 @@ const project = PROJECTS.find((project) => project.slug === slug)!;
             class="flex w-full flex-1 flex-col items-start justify-center gap-5 lg:items-center"
           >
             <div class="max-w-[50%] sm:max-w-[25%] lg:max-w-[50%]">
-              <!-- @ts-expect-error //TODO fix this type error -->
-              <ProjectLogo>
-                <!-- @ts-expect-error //TODO fix this type error -->
-                <Image
-                  slot="darkModeLogo"
-                  src={project.logoImageDark}
-                  alt="logo"
-                  inferSize
-                />
-                <!-- @ts-expect-error //TODO fix this -->
-                <Image
-                  slot="lightModeLogo"
-                  src={project.logoImageLight}
-                  alt="logo"
-                  inferSize
-                />
-              </ProjectLogo>
+              <ProjectLogo
+                logoImageDark={project.logoImageDark}
+                logoImageLight={project.logoImageLight}
+              />
             </div>
           </div>
           <ProjectDetails project={project} />

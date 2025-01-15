@@ -1,16 +1,16 @@
 ---
-import ContentContainer from "~/components/common/ContentContainer";
-import MobileHeader from "~/components/common/MobileHeader";
-import RailContainer from "~/components/common/RailContainer";
-import RailNav from "~/components/common/RailNav";
-import Home from "~/components/home/Home";
+import ContentContainer from "~/components/common/ContentContainer.astro";
+import MobileHeader from "~/components/common/MobileHeader.astro";
+import RailContainer from "~/components/common/RailContainer.astro";
+import RailNav from "~/components/common/RailNav.astro";
+import Home from "~/components/home/Home.astro";
 import Layout from "~/layouts/Layout.astro";
 ---
 
 <Layout>
   <ContentContainer className="h-full flex-col lg:border-r">
-    <MobileHeader title="LEON ESQUILLON" client:load />
-    <Home client:load />
+    <MobileHeader title="LEON ESQUILLON" />
+    <Home />
   </ContentContainer>
 
   <RailContainer className="border-l p-0">

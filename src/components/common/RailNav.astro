@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import { cn } from "~/lib/utils";
+
+interface Props extends HTMLAttributes<"a"> {
+  href: string;
+  isActive?: boolean;
+  className?: string;
+}
+
+const { href, isActive, className, ...props }: Props = Astro.props;
+
+const combinedClass = cn(
+  "whitespace-nowrap font-sans text-xl font-bold text-muted-foreground transition group-hover/nav:text-foreground",
+  isActive && "text-foreground",
+  className,
+);
+---
+
+<a
+  href={href}
+  aria-label={`Navigate to ${href}`}
+  class={combinedClass}
+  {...props}
+>
+  <slot />
+</a>

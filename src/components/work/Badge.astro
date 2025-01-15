@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import { cn } from "~/lib/utils";
+
+interface Props extends HTMLAttributes<"div"> {
+  text: string;
+  className?: string;
+}
+
+const { text, className, ...props }: Props = Astro.props;
+
+const containerClass = cn(
+  "whitespace-nowrap rounded-full border border-[#2137AC] bg-[#182253] px-3 py-1 font-sans text-sm text-[#95BEFB]",
+  className,
+);
+---
+
+<div class={containerClass} {...props}>
+  {text}
+</div>

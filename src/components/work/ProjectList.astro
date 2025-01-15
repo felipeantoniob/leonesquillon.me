@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+
+import { PROJECTS } from "~/constants/projects";
+---
+
+<div
+  id="scroll-container"
+  class="mx-auto flex h-full max-h-screen w-full flex-1 flex-col gap-20 overflow-y-auto px-4 py-8 lg:px-10 lg:py-20"
+>
+  {
+    PROJECTS.map((project) => {
+      return (
+        <div
+          id={project.slug}
+          class="flex flex-col gap-5 text-foreground xl:flex-row"
+        >
+          <div class="flex max-w-72 flex-1 flex-col gap-2">
+            <p class="font-serif text-3xl font-medium">{project.title}</p>
+            <p class="font-sans text-sm text-foreground">{project.period}</p>
+            <p class="text-medium font-sans text-sm">{project.summary}</p>
+          </div>
+          <a
+            href={`/work/${project.slug}`}
+            aria-label={`Link to ${project.title} project`}
+            class="z-40 w-full flex-1 overflow-clip transition-all hover:rounded-xl"
+          >
+            <Image
+              src={project.coverImage}
+              alt={`${project.title} cover`}
+              class="w-full overflow-hidden object-contain transition-all hover:scale-110 hover:rounded-xl"
+            />
+          </a>
+        </div>
+      );
+    })
+  }
+</div>

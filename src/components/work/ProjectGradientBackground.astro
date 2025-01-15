@@ -1,0 +1,37 @@
+---
+interface Props {
+  gradients: {
+    light: string;
+    dark: string;
+  };
+}
+
+const { gradients }: Props = Astro.props;
+---
+
+<div
+  id="gradientBackground"
+  style={{ background: gradients.dark }}
+  class="pointer-events-none absolute inset-0 -z-10 h-screen w-screen"
+  data-dark={gradients.dark}
+  data-light={gradients.light}
+>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const theme = localStorage.getItem("theme");
+    const gradientBackground = document.getElementById("gradientBackground");
+
+    if (gradientBackground) {
+      const darkGradient = gradientBackground.getAttribute("data-dark") ?? "";
+      const lightGradient = gradientBackground.getAttribute("data-light") ?? "";
+
+      if (theme === "dark") {
+        gradientBackground.style.background = darkGradient;
+      } else {
+        gradientBackground.style.background = lightGradient;
+      }
+    }
+  });
+</script>

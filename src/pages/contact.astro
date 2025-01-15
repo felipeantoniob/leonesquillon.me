@@ -1,9 +1,9 @@
 ---
-import ContentContainer from "~/components/common/ContentContainer";
+import ContentContainer from "~/components/common/ContentContainer.astro";
 import HomeRailNav from "~/components/common/HomeRailNav.astro";
-import MobileHeader from "~/components/common/MobileHeader";
-import RailContainer from "~/components/common/RailContainer";
-import RailNav from "~/components/common/RailNav";
+import MobileHeader from "~/components/common/MobileHeader.astro";
+import RailContainer from "~/components/common/RailContainer.astro";
+import RailNav from "~/components/common/RailNav.astro";
 import ContactInfo from "~/components/contact/ContactInfo.astro";
 import SEO from "~/components/SEO.astro";
 import Layout from "~/layouts/Layout.astro";
@@ -22,7 +22,7 @@ import Layout from "~/layouts/Layout.astro";
   </RailContainer>
 
   <ContentContainer className="h-full lg:border-l">
-    <MobileHeader title="CONTACT" client:load />
+    <MobileHeader title="CONTACT" />
     <RailContainer disableGradient>
       <RailNav href="/contact" isActive>CONTACT</RailNav>
     </RailContainer>
