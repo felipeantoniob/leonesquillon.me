@@ -1,0 +1,120 @@
+---
+import MobileNavList from "../common/MobileNavList.astro";
+import BioSection from "./BioSection.astro";
+import DesktopNavList from "./DesktopNavList.astro";
+import ExperienceSection from "./ExperienceSection.astro";
+import IntroductionSection from "./IntroductionSection.astro";
+---
+
+<DesktopNavList />
+<div id="scroll-container" class="flex-1 overflow-y-auto">
+  <div class="h-full">
+    <IntroductionSection />
+  </div>
+  <div class="h-full">
+    <ExperienceSection />
+  </div>
+  <div class="h-full">
+    <BioSection />
+  </div>
+</div>
+<MobileNavList />
+
+<script>
+  const sections = [1, 2, 3];
+  const scrollContainerElement = document.getElementById("scroll-container");
+  const buttons: NodeListOf<HTMLButtonElement> =
+    document.querySelectorAll(".nav-button");
+  const activateButton = (button: HTMLButtonElement) => {
+    button.classList.remove("text-muted-foreground");
+    button.classList.add("text-foreground");
+  };
+
+  const deactivateButton = (button: HTMLButtonElement) => {
+    button.classList.remove("text-foreground");
+    button.classList.add("text-muted-foreground");
+  };
+
+  const initializeNavigation = () => {
+    if (buttons[0]) {
+      activateButton(buttons[0]);
+    }
+  };
+
+  const getCurrentSectionIndex = (
+    scrollTop: number,
+    containerVisibleHeight: number,
+    totalContentHeight: number,
+  ) => {
+    const scrollProgress = Math.max(
+      scrollTop / (totalContentHeight - containerVisibleHeight),
+      0,
+    );
+    return Math.min(
+      Math.floor(scrollProgress * sections.length),
+      sections.length - 1,
+    );
+  };
+
+  const updateNavigation = (currentSectionIndex: number) => {
+    buttons.forEach((button) => {
+      const buttonIndex = parseInt(button.getAttribute("data-index") ?? "", 10);
+      if (buttonIndex === currentSectionIndex) {
+        activateButton(button);
+      } else {
+        deactivateButton(button);
+      }
+    });
+  };
+
+  const handleScroll = () => {
+    if (!scrollContainerElement) return;
+
+    const {
+      scrollTop,
+      clientHeight: containerVisibleHeight,
+      scrollHeight: totalContentHeight,
+    } = scrollContainerElement;
+
+    const currentSectionIndex = getCurrentSectionIndex(
+      scrollTop,
+      containerVisibleHeight,
+      totalContentHeight,
+    );
+    console.log(currentSectionIndex);
+    updateNavigation(currentSectionIndex);
+  };
+
+  const handleClick = (button: HTMLButtonElement) => {
+    if (!scrollContainerElement) return;
+    const index = button.getAttribute("data-index");
+
+    const scrollProgress = parseInt(index ?? "") / (sections.length - 1);
+
+    const totalScrollableHeight =
+      scrollContainerElement.scrollHeight - scrollContainerElement.clientHeight;
+
+    const targetScrollPosition = totalScrollableHeight * scrollProgress;
+
+    scrollContainerElement.scrollTo({
+      top: targetScrollPosition,
+      behavior: "smooth",
+    });
+  };
+
+  const initializeButtonListeners = () => {
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => handleClick(button));
+    });
+  };
+
+  const init = () => {
+    if (scrollContainerElement) {
+      initializeNavigation();
+      initializeButtonListeners();
+      scrollContainerElement.addEventListener("scroll", handleScroll);
+    }
+  };
+
+  init();
+</script>

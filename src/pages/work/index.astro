@@ -1,11 +1,11 @@
 ---
-import ContentContainer from "~/components/common/ContentContainer";
+import ContentContainer from "~/components/common/ContentContainer.astro";
 import HomeRailNav from "~/components/common/HomeRailNav.astro";
-import MobileHeader from "~/components/common/MobileHeader";
-import RailContainer from "~/components/common/RailContainer";
-import RailNav from "~/components/common/RailNav";
+import MobileHeader from "~/components/common/MobileHeader.astro";
+import RailContainer from "~/components/common/RailContainer.astro";
+import RailNav from "~/components/common/RailNav.astro";
 import SEO from "~/components/SEO.astro";
-import Projects from "~/components/work/Projects";
+import Projects from "~/components/work/Projects.astro";
 import Layout from "~/layouts/Layout.astro";
 ---
 
@@ -18,8 +18,8 @@ import Layout from "~/layouts/Layout.astro";
   <HomeRailNav />
 
   <ContentContainer className="h-full lg:border-x">
-    <MobileHeader title="WORK" client:load />
-    <Projects client:load />
+    <MobileHeader title="WORK" />
+    <Projects />
   </ContentContainer>
 
   <RailContainer className="p-0">

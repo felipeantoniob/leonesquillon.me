@@ -1,0 +1,28 @@
+---
+import Logo from "../common/Logo.astro";
+import RailContainer from "../common/RailContainer.astro";
+import RailNav from "../common/RailNav.astro";
+
+const SECTION = ["Introduction", "Experience", "Bio"] as const;
+---
+
+<RailContainer disableGradient>
+  <RailNav href="/" isActive className="hidden flex-row gap-4 lg:flex">
+    <Logo className="text-foreground" />
+    LEON ESQUILLON
+  </RailNav>
+  <div class="mt-10 flex w-full flex-col items-start gap-5">
+    {
+      SECTION.map((section, index) => {
+        return (
+          <button
+            data-index={index}
+            class="nav-button w-full text-left font-sans text-base font-medium text-muted-foreground transition hover:text-foreground"
+          >
+            {section}
+          </button>
+        );
+      })
+    }
+  </div>
+</RailContainer>

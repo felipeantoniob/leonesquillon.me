@@ -1,0 +1,42 @@
+---
+import { EXPERIENCE } from "~/constants/experience";
+import StepCircle from "./StepCircle.astro";
+
+const experience = EXPERIENCE.sort((a, b) => a.sortOrder - b.sortOrder);
+---
+
+<div class="mx-auto flex h-full w-full max-w-fit flex-col justify-center">
+  {
+    experience.map(({ position, company, period }, index) => (
+      <div class="flex flex-row gap-4">
+        <div class="flex w-10 flex-col items-center">
+          <StepCircle isSelected={index === 0} />
+          <div
+            class={`
+            my-1 flex h-full w-[2px] flex-1 rounded-full bg-[#454545]
+            ${index === experience.length - 1 ? "hidden" : ""}
+          `}
+          />
+        </div>
+        <div class="flex flex-1 flex-col justify-between pb-8 pt-2">
+          <p
+            class={`
+            font-sans text-sm font-semibold text-muted-foreground lg:text-base
+            ${index === 0 ? "text-primary" : ""}
+          `}
+          >
+            {position}, {company}
+          </p>
+          <p
+            class={`
+            font-sans text-sm font-normal text-muted-foreground/80
+            ${index === 0 ? "text-foreground" : ""}
+          `}
+          >
+            {period}
+          </p>
+        </div>
+      </div>
+    ))
+  }
+</div>
