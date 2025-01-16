@@ -1,10 +1,12 @@
 ---
 import { PROJECTS } from "~/constants/projects";
+
+const projects = PROJECTS.sort((a, b) => a.sortOrder - b.sortOrder);
 ---
 
 <div class="mt-10 flex max-w-64 flex-col gap-5">
   {
-    PROJECTS.map((project, index) => (
+    projects.map((project, index) => (
       <button
         data-index={index}
         class="nav-button text-left font-sans font-medium uppercase text-muted-foreground transition-all hover:text-foreground"

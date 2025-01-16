@@ -2,6 +2,8 @@
 import { Image } from "astro:assets";
 
 import { PROJECTS } from "~/constants/projects";
+
+const projects = PROJECTS.sort((a, b) => a.sortOrder - b.sortOrder);
 ---
 
 <div
@@ -9,7 +11,7 @@ import { PROJECTS } from "~/constants/projects";
   class="mx-auto flex h-full max-h-screen w-full flex-1 flex-col gap-20 overflow-y-auto px-4 py-8 lg:px-10 lg:py-20"
 >
   {
-    PROJECTS.map((project) => {
+    projects.map((project) => {
       return (
         <div
           id={project.slug}
