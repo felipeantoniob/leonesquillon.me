@@ -14,7 +14,4 @@ export default defineConfig({
     defaultStrategy: "load",
   },
   integrations: [react(), tailwind(), sitemap(), partytown()],
-  experimental: {
-    svg: true,
-  },
 });
